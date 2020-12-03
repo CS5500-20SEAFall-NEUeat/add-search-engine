@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoadDatabase.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NEUEat</a> &gt; <a href="index.source.html" class="el_package">com.cs5500.NEUEat</a> &gt; <span class="el_source">LoadDatabase.java</span></div><h1>LoadDatabase.java</h1><pre class="source lang-java linenums">package com.cs5500.NEUEat;
+
+import com.cs5500.NEUEat.model.Comment;
+import com.cs5500.NEUEat.model.Customer;
+import com.cs5500.NEUEat.model.Dish;
+import com.cs5500.NEUEat.model.Driver;
+import com.cs5500.NEUEat.model.Order;
+import com.cs5500.NEUEat.model.Restaurant;
+import com.cs5500.NEUEat.model.RestaurantInfo;
+import com.cs5500.NEUEat.model.SearchEngine;
+import com.cs5500.NEUEat.repository.CustomerRepository;
+import com.cs5500.NEUEat.repository.DriverRepository;
+import com.cs5500.NEUEat.repository.OrderRepository;
+import com.cs5500.NEUEat.repository.RestaurantRepository;
+import com.cs5500.NEUEat.repository.SearchEngineRepository;
+import com.cs5500.NEUEat.service.PasswordService;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+// This class is used to refresh the database. It will delete all existing data and add the default ones
+// The default data contains one customer, one driver, two restaurants, two finished orders. Each restaurant contains three dishes.
+
+@SpringBootApplication
+<span class="fc" id="L29">public class LoadDatabase implements CommandLineRunner {</span>
+  @Autowired
+  private CustomerRepository customerRepository;
+  @Autowired
+  private DriverRepository driverRepository;
+  @Autowired
+  private RestaurantRepository restaurantRepository;
+  @Autowired
+  private OrderRepository orderRepository;
+  @Autowired
+  private SearchEngineRepository searchEngineRepository;
+<span class="fc" id="L40">  PasswordService passwordService = new PasswordService();</span>
+
+  public static void main(String[] args) {
+<span class="nc" id="L43">    SpringApplication.run(LoadDatabase.class, args);</span>
+<span class="nc" id="L44">  }</span>
+
+  @Override
+  public void run(String... args) throws Exception {
+<span class="fc" id="L48">    customerRepository.deleteAll();</span>
+<span class="fc" id="L49">    Customer customer1 = new Customer(&quot;tma&quot;, passwordService.generatePassword(&quot;12345&quot;),</span>
+        &quot;7739973942&quot;, &quot;1512 NW 63rd St&quot;, &quot;Seattle&quot;, &quot;WA&quot;, &quot;98107&quot;);
+<span class="fc" id="L51">    customerRepository.save(customer1);</span>
+
+<span class="fc" id="L53">    driverRepository.deleteAll();</span>
+<span class="fc" id="L54">    Driver driver1 = new Driver(&quot;Bruce&quot;, passwordService.generatePassword(&quot;12345&quot;), &quot;5674243435&quot;,</span>
+        &quot;401 NE Northgate Way&quot;, &quot;Seattle&quot;, &quot;WA&quot;, &quot;98125&quot;);
+<span class="fc" id="L56">    driverRepository.save(driver1);</span>
+
+<span class="fc" id="L58">    RestaurantInfo restaurantInfo1 = new RestaurantInfo();</span>
+<span class="fc" id="L59">    restaurantInfo1.setOpen(true);</span>
+<span class="fc" id="L60">    restaurantInfo1.setRestaurantName(&quot;Macdonald&quot;);</span>
+<span class="fc" id="L61">    restaurantInfo1.setDescription(&quot;We serve best fast food!&quot;);</span>
+<span class="fc" id="L62">    restaurantInfo1.setImageUrl(</span>
+        &quot;https://i.pinimg.com/originals/f4/4e/ec/f44eecf0fa921427f4a4669fb8f69115.png&quot;);
+<span class="fc" id="L64">    restaurantInfo1.setTag1(&quot;fastfood&quot;);</span>
+<span class="fc" id="L65">    restaurantInfo1.setTag2(&quot;cheap&quot;);</span>
+<span class="fc" id="L66">    restaurantInfo1.setTag3(&quot;hamburger&quot;);</span>
+
+<span class="fc" id="L68">    RestaurantInfo restaurantInfo2 = new RestaurantInfo();</span>
+<span class="fc" id="L69">    restaurantInfo2.setOpen(true);</span>
+<span class="fc" id="L70">    restaurantInfo2.setRestaurantName(&quot;PizzaHut&quot;);</span>
+<span class="fc" id="L71">    restaurantInfo2.setDescription(&quot;We serve pizza and salad&quot;);</span>
+<span class="fc" id="L72">    restaurantInfo2.setImageUrl(</span>
+        &quot;https://yt3.ggpht.com/a/AATXAJwkXJs-JbKCe4ab7wNKGtzjHVuyingDGT7bzL5Okw=s900-c-k-c0xffffffff-no-rj-mo&quot;);
+<span class="fc" id="L74">    restaurantInfo2.setTag1(&quot;italian&quot;);</span>
+<span class="fc" id="L75">    restaurantInfo2.setTag2(&quot;healthy&quot;);</span>
+<span class="fc" id="L76">    restaurantInfo2.setTag3(&quot;party&quot;);</span>
+
+<span class="fc" id="L78">    RestaurantInfo restaurantInfo3 = new RestaurantInfo();</span>
+<span class="fc" id="L79">    restaurantInfo3.setOpen(false);</span>
+<span class="fc" id="L80">    restaurantInfo3.setRestaurantName(&quot;Water Bar&quot;);</span>
+<span class="fc" id="L81">    restaurantInfo3.setDescription(&quot;We serve all kind of drinks&quot;);</span>
+<span class="fc" id="L82">    restaurantInfo3.setImageUrl(</span>
+        &quot;https://scx2.b-cdn.net/gfx/news/hires/2019/water.jpg&quot;
+    );
+<span class="fc" id="L85">    restaurantInfo3.setTag1(&quot;juice&quot;);</span>
+<span class="fc" id="L86">    restaurantInfo3.setTag2(&quot;beer&quot;);</span>
+<span class="fc" id="L87">    restaurantInfo3.setTag3(&quot;drink&quot;);</span>
+
+<span class="fc" id="L89">    Dish dish1 = new Dish();</span>
+<span class="fc" id="L90">    dish1.setDishName(&quot;Big Mac&quot;);</span>
+<span class="fc" id="L91">    dish1.setImageUrl(</span>
+        &quot;https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/regular/desktop/t-mcdonalds-Big-Mac.jpg&quot;);
+<span class="fc" id="L93">    dish1.setPrice(5);</span>
+
+<span class="fc" id="L95">    Dish dish2 = new Dish();</span>
+<span class="fc" id="L96">    dish2.setDishName(&quot;Fried Chicken&quot;);</span>
+<span class="fc" id="L97">    dish2.setImageUrl(&quot;https://content.fortune.com/wp-content/uploads/2015/03/ap956240873949.jpg&quot;);</span>
+<span class="fc" id="L98">    dish2.setPrice(4);</span>
+
+<span class="fc" id="L100">    Dish dish3 = new Dish();</span>
+<span class="fc" id="L101">    dish3.setDishName(&quot;Fries&quot;);</span>
+<span class="fc" id="L102">    dish3</span>
+<span class="fc" id="L103">        .setImageUrl(&quot;https://www.wired.com/wp-content/uploads/2014/06/qq_whatsinside_fries_f.jpg&quot;);</span>
+<span class="fc" id="L104">    dish3.setPrice(3);</span>
+
+<span class="fc" id="L106">    Dish dish4 = new Dish();</span>
+<span class="fc" id="L107">    dish4.setDishName(&quot;Pizza&quot;);</span>
+<span class="fc" id="L108">    dish4.setImageUrl(</span>
+        &quot;https://www.qsrmagazine.com/sites/default/files/styles/story_page/public/story/pizza-hut-turns-comeback-expert_0.jpg?itok=U_V-5YAD&quot;);
+<span class="fc" id="L110">    dish4.setPrice(22);</span>
+
+<span class="fc" id="L112">    Dish dish5 = new Dish();</span>
+<span class="fc" id="L113">    dish5.setDishName(&quot;Salad&quot;);</span>
+<span class="fc" id="L114">    dish5.setImageUrl(</span>
+        &quot;https://www.howsweeteats.com/wp-content/uploads/2020/05/summer-salad-16-500x375.jpg&quot;);
+<span class="fc" id="L116">    dish5.setPrice(13);</span>
+
+<span class="fc" id="L118">    Dish dish6 = new Dish();</span>
+<span class="fc" id="L119">    dish6.setDishName(&quot;Soup&quot;);</span>
+<span class="fc" id="L120">    dish6.setImageUrl(</span>
+        &quot;https://www.inspiredtaste.net/wp-content/uploads/2018/10/Homemade-Vegetable-Soup-Recipe-2-1200.jpg&quot;);
+<span class="fc" id="L122">    dish6.setPrice(7.5);</span>
+
+<span class="fc" id="L124">    Dish dish7 = new Dish();</span>
+<span class="fc" id="L125">    dish7.setDishName(&quot;Orange Juice&quot;);</span>
+<span class="fc" id="L126">    dish7.setImageUrl(&quot;https://thumbs.dreamstime.com/b/fresh-orange-juice-vitamins-health-table-fruits-jucie-78350628.jpg&quot;);</span>
+<span class="fc" id="L127">    dish7.setPrice(5);</span>
+
+<span class="fc" id="L129">    List&lt;Dish&gt; dishes1 = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L130">    dishes1.add(dish1);</span>
+<span class="fc" id="L131">    dishes1.add(dish2);</span>
+<span class="fc" id="L132">    dishes1.add(dish3);</span>
+
+<span class="fc" id="L134">    List&lt;Dish&gt; dishes2 = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L135">    dishes2.add(dish4);</span>
+<span class="fc" id="L136">    dishes2.add(dish5);</span>
+<span class="fc" id="L137">    dishes2.add(dish6);</span>
+
+<span class="fc" id="L139">    List&lt;Dish&gt; dishes3 = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L140">    dishes3.add(dish7);</span>
+
+<span class="fc" id="L142">    restaurantRepository.deleteAll();</span>
+<span class="fc" id="L143">    Restaurant restaurant1 = new Restaurant(&quot;mcd&quot;, passwordService.generatePassword(&quot;12345&quot;),</span>
+        &quot;1234567890&quot;, &quot;9000 Holman Rd NW&quot;, &quot;Seattle&quot;, &quot;WA&quot;, &quot;98117&quot;, restaurantInfo1, dishes1);
+<span class="fc" id="L145">    Restaurant restaurant2 = new Restaurant(&quot;pizza&quot;, passwordService.generatePassword(&quot;12345&quot;),</span>
+        &quot;1234567890&quot;, &quot;23830 Hwy 99 Ste 118&quot;, &quot;Edmonds&quot;, &quot;WA&quot;, &quot;98026&quot;, restaurantInfo2, dishes2);
+<span class="fc" id="L147">    Restaurant restaurant3 = new Restaurant(&quot;bar&quot;, passwordService.generatePassword(&quot;12345&quot;), &quot;1234567890&quot;, &quot;309 N 36th St&quot;, &quot;Seattle&quot;, &quot;WA&quot;, &quot;98103&quot;, restaurantInfo3, dishes3);</span>
+<span class="fc" id="L148">    restaurantRepository.save(restaurant1);</span>
+<span class="fc" id="L149">    restaurantRepository.save(restaurant2);</span>
+<span class="fc" id="L150">    restaurantRepository.save(restaurant3);</span>
+
+<span class="fc" id="L152">    searchEngineRepository.deleteAll();</span>
+<span class="fc" id="L153">    SearchEngine searchEngine = new SearchEngine();</span>
+<span class="fc" id="L154">    String id1 = restaurant1.getId();</span>
+<span class="fc" id="L155">    searchEngine.add(restaurantInfo1.getRestaurantName(), id1);</span>
+<span class="fc" id="L156">    searchEngine.add(restaurantInfo1.getTag1(), id1);</span>
+<span class="fc" id="L157">    searchEngine.add(restaurantInfo1.getTag2(), id1);</span>
+<span class="fc" id="L158">    searchEngine.add(restaurantInfo1.getTag3(), id1);</span>
+<span class="fc" id="L159">    searchEngine.add(dish1.getDishName(), id1);</span>
+<span class="fc" id="L160">    searchEngine.add(dish2.getDishName(), id1);</span>
+<span class="fc" id="L161">    searchEngine.add(dish3.getDishName(), id1);</span>
+<span class="fc" id="L162">    String id2 = restaurant2.getId();</span>
+<span class="fc" id="L163">    searchEngine.add(restaurantInfo2.getRestaurantName(), id2);</span>
+<span class="fc" id="L164">    searchEngine.add(restaurantInfo2.getTag1(), id2);</span>
+<span class="fc" id="L165">    searchEngine.add(restaurantInfo2.getTag2(), id2);</span>
+<span class="fc" id="L166">    searchEngine.add(restaurantInfo2.getTag3(), id2);</span>
+<span class="fc" id="L167">    searchEngine.add(dish4.getDishName(), id2);</span>
+<span class="fc" id="L168">    searchEngine.add(dish5.getDishName(), id2);</span>
+<span class="fc" id="L169">    searchEngine.add(dish6.getDishName(), id2);</span>
+<span class="fc" id="L170">    String id3 = restaurant3.getId();</span>
+<span class="fc" id="L171">    searchEngine.add(restaurantInfo3.getRestaurantName(), id3);</span>
+<span class="fc" id="L172">    searchEngine.add(restaurantInfo3.getTag1(), id3);</span>
+<span class="fc" id="L173">    searchEngine.add(restaurantInfo3.getTag2(), id3);</span>
+<span class="fc" id="L174">    searchEngine.add(restaurantInfo3.getTag3(), id3);</span>
+<span class="fc" id="L175">    searchEngine.add(dish7.getDishName(), id3);</span>
+<span class="fc" id="L176">    searchEngineRepository.save(searchEngine);</span>
+
+<span class="fc" id="L178">    orderRepository.deleteAll();</span>
+<span class="fc" id="L179">    Order order1 = new Order();</span>
+<span class="fc" id="L180">    order1.setCustomerId(customer1.getId());</span>
+<span class="fc" id="L181">    order1.setDriverId(driver1.getId());</span>
+<span class="fc" id="L182">    order1.setRestaurantId(restaurant1.getId());</span>
+<span class="fc" id="L183">    order1.setStartTime(LocalDateTime.of(2020, 1, 1, 19, 30));</span>
+<span class="fc" id="L184">    order1.setDelivery(true);</span>
+<span class="fc" id="L185">    order1.setEndTime(LocalDateTime.of(2020, 1, 1, 20, 0));</span>
+<span class="fc" id="L186">    order1.setContent(dishes1);</span>
+<span class="fc" id="L187">    double price1 = 0;</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">    for (Dish dish : dishes1) {</span>
+<span class="fc" id="L189">      price1 += dish.getPrice();</span>
+<span class="fc" id="L190">    }</span>
+<span class="fc" id="L191">    order1.setPrice(price1);</span>
+<span class="fc" id="L192">    Comment comment1 = new Comment(4, &quot;very nice experience, the food is delicious&quot;);</span>
+<span class="fc" id="L193">    order1.setComment(comment1);</span>
+<span class="fc" id="L194">    Order order2 = new Order();</span>
+<span class="fc" id="L195">    order2.setCustomerId(customer1.getId());</span>
+<span class="fc" id="L196">    order2.setDriverId(driver1.getId());</span>
+<span class="fc" id="L197">    order2.setRestaurantId(restaurant2.getId());</span>
+<span class="fc" id="L198">    order2.setStartTime(LocalDateTime.of(2020, 2, 3, 11, 25));</span>
+<span class="fc" id="L199">    order2.setDelivery(true);</span>
+<span class="fc" id="L200">    order2.setEndTime(LocalDateTime.of(2020, 2, 3, 13, 0));</span>
+<span class="fc" id="L201">    order2.setContent(dishes2);</span>
+<span class="fc" id="L202">    double price2 = 0;</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">    for (Dish dish : dishes2) {</span>
+<span class="fc" id="L204">      price2 += dish.getPrice();</span>
+<span class="fc" id="L205">    }</span>
+<span class="fc" id="L206">    order2.setPrice(price2);</span>
+<span class="fc" id="L207">    Comment comment2 = new Comment(2, &quot;the food is so expensive&quot;);</span>
+<span class="fc" id="L208">    order2.setComment(comment2);</span>
+<span class="fc" id="L209">    Order order3 = new Order();</span>
+<span class="fc" id="L210">    order3.setCustomerId(customer1.getId());</span>
+<span class="fc" id="L211">    order3.setDriverId(driver1.getId());</span>
+<span class="fc" id="L212">    order3.setRestaurantId(restaurant3.getId());</span>
+<span class="fc" id="L213">    order3.setStartTime(LocalDateTime.of(2020, 1, 1, 19, 30));</span>
+<span class="fc" id="L214">    order3.setDelivery(true);</span>
+<span class="fc" id="L215">    order3.setEndTime(LocalDateTime.of(2020, 1, 1, 20, 0));</span>
+<span class="fc" id="L216">    order3.setContent(dishes3);</span>
+<span class="fc" id="L217">    double price3 = 0;</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">    for (Dish dish : dishes3) {</span>
+<span class="fc" id="L219">      price3 += dish.getPrice();</span>
+<span class="fc" id="L220">    }</span>
+<span class="fc" id="L221">    order3.setPrice(price3);</span>
+<span class="fc" id="L222">    Order order4 = new Order();</span>
+<span class="fc" id="L223">    order4.setCustomerId(customer1.getId());</span>
+<span class="fc" id="L224">    order4.setDriverId(driver1.getId());</span>
+<span class="fc" id="L225">    order4.setRestaurantId(restaurant2.getId());</span>
+<span class="fc" id="L226">    order4.setStartTime(LocalDateTime.of(2020, 2, 3, 11, 25));</span>
+<span class="fc" id="L227">    order4.setDelivery(true);</span>
+<span class="fc" id="L228">    order4.setEndTime(LocalDateTime.of(2020, 2, 3, 13, 0));</span>
+<span class="fc" id="L229">    order4.setContent(dishes2);</span>
+<span class="fc" id="L230">    double price4 = 0;</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">    for (Dish dish : dishes2) {</span>
+<span class="fc" id="L232">      price4 += dish.getPrice();</span>
+<span class="fc" id="L233">    }</span>
+<span class="fc" id="L234">    order4.setPrice(price4);</span>
+<span class="fc" id="L235">    Comment comment3 = new Comment(5, &quot;The delivery is very fast!!!&quot;);</span>
+<span class="fc" id="L236">    order4.setComment(comment3);</span>
+<span class="fc" id="L237">    orderRepository.save(order1);</span>
+<span class="fc" id="L238">    orderRepository.save(order2);</span>
+<span class="fc" id="L239">    orderRepository.save(order3);</span>
+<span class="fc" id="L240">    orderRepository.save(order4);</span>
+<span class="fc" id="L241">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

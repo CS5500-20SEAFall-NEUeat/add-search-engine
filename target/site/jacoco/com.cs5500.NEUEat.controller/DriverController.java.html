@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DriverController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NEUEat</a> &gt; <a href="index.source.html" class="el_package">com.cs5500.NEUEat.controller</a> &gt; <span class="el_source">DriverController.java</span></div><h1>DriverController.java</h1><pre class="source lang-java linenums">package com.cs5500.NEUEat.controller;
+
+import com.cs5500.NEUEat.exception.OrderAlreadyDeliverException;
+import com.cs5500.NEUEat.exception.OrderAlreadyFinishException;
+import com.cs5500.NEUEat.exception.OrderNotExistException;
+import com.cs5500.NEUEat.exception.OrderNotFinishedException;
+import com.cs5500.NEUEat.exception.PasswordNotMatchException;
+import com.cs5500.NEUEat.exception.UserAlreadyExistException;
+import com.cs5500.NEUEat.exception.UserNotExistException;
+import com.cs5500.NEUEat.model.Driver;
+import com.cs5500.NEUEat.model.Order;
+import com.cs5500.NEUEat.service.DriverServiceImpl;
+import com.cs5500.NEUEat.service.OrderServiceImpl;
+import java.util.List;
+import java.util.Optional;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+@RequestMapping(&quot;/api/driver&quot;)
+public class DriverController {
+
+  private final DriverServiceImpl driverService;
+  private final OrderServiceImpl orderService;
+
+  @Autowired
+<span class="fc" id="L38">  public DriverController(DriverServiceImpl driverService, OrderServiceImpl orderService) {</span>
+<span class="fc" id="L39">    this.driverService = driverService;</span>
+<span class="fc" id="L40">    this.orderService = orderService;</span>
+<span class="fc" id="L41">  }</span>
+
+  @GetMapping(path = &quot;{id}&quot;)
+  public Driver getDriverById(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException {
+<span class="nc" id="L46">    return driverService.getUser(id)</span>
+<span class="nc" id="L47">        .orElseThrow(() -&gt; new UserNotExistException(&quot;User doesn't exist&quot;));</span>
+  }
+
+  @PostMapping(path = &quot;/login&quot;)
+  public Driver loginDriver(@RequestBody String jsonUser)
+      throws UserNotExistException, PasswordNotMatchException {
+
+<span class="nc" id="L54">    JSONObject user = new JSONObject(jsonUser);</span>
+<span class="nc" id="L55">    String userName = user.getString(&quot;userName&quot;);</span>
+<span class="nc" id="L56">    String password = user.getString(&quot;password&quot;);</span>
+<span class="nc" id="L57">    Optional&lt;Driver&gt; driver = driverService.getUserByName(userName);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">    if (driver.isEmpty()) {</span>
+<span class="nc" id="L59">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc bnc" id="L61" title="All 2 branches missed.">    if (!driverService.passwordMatch(driver.get().getId(), password)) {</span>
+<span class="nc" id="L62">      throw new PasswordNotMatchException(&quot;Password doesn't match&quot;);</span>
+    }
+<span class="nc" id="L64">    return driver.get();</span>
+  }
+
+  @PostMapping(path = &quot;/register&quot;)
+  public Driver registerDriver(@RequestBody String jsonUser)
+      throws UserAlreadyExistException {
+
+<span class="nc" id="L71">    JSONObject user = new JSONObject(jsonUser);</span>
+<span class="nc" id="L72">    String userName = user.getString(&quot;userName&quot;);</span>
+<span class="nc" id="L73">    String password = user.getString(&quot;password&quot;);</span>
+<span class="nc" id="L74">    String phoneNumber = user.getString(&quot;phoneNumber&quot;);</span>
+<span class="nc" id="L75">    String address = user.getString(&quot;address&quot;);</span>
+<span class="nc" id="L76">    String city = user.getString(&quot;city&quot;);</span>
+<span class="nc" id="L77">    String state = user.getString(&quot;state&quot;);</span>
+<span class="nc" id="L78">    String zip = user.getString(&quot;zip&quot;);</span>
+<span class="nc" id="L79">    Driver driver = driverService</span>
+<span class="nc" id="L80">        .addUser(userName, password, phoneNumber, address, city, state, zip);</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">    if (driver == null) {</span>
+<span class="nc" id="L82">      throw new UserAlreadyExistException(&quot;User already exists, please login&quot;);</span>
+    }
+<span class="nc" id="L84">    return driver;</span>
+  }
+
+  @PostMapping(path = &quot;/logout&quot;)
+  public int logoutDriver() {
+<span class="nc" id="L89">    System.out.println(&quot;logout the user&quot;);</span>
+<span class="nc" id="L90">    return 1;</span>
+  }
+
+  @GetMapping(path = &quot;/pendingOrders/&quot; + &quot;{id}&quot;)
+  public List&lt;Order&gt; getPendingOrders(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException {
+<span class="nc bnc" id="L96" title="All 2 branches missed.">    if (driverService.getUser(id).isEmpty()) {</span>
+<span class="nc" id="L97">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc bnc" id="L99" title="All 2 branches missed.">    if (orderService.driverGetActiveOrder(id) != null) {</span>
+<span class="nc" id="L100">      System.out.println(&quot;Driver already has an active order&quot;);</span>
+<span class="nc" id="L101">      return null;</span>
+    }
+<span class="nc" id="L103">    return orderService.getAllPendingOrders();</span>
+  }
+
+  @GetMapping(path = &quot;/myActiveOrder/&quot; + &quot;{id}&quot;)
+  public Order getActiveOrder(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException {
+<span class="nc bnc" id="L109" title="All 2 branches missed.">    if (driverService.getUser(id).isEmpty()) {</span>
+<span class="nc" id="L110">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L112">    return orderService.driverGetActiveOrder(id);</span>
+  }
+
+  @GetMapping(path = &quot;/myOrderHistory/&quot; + &quot;{id}&quot;)
+  public List&lt;Order&gt; getOrderHistory(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException {
+<span class="nc bnc" id="L118" title="All 2 branches missed.">    if (driverService.getUser(id).isEmpty()) {</span>
+<span class="nc" id="L119">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L121">    return orderService.driverFindPastOrders(id);</span>
+  }
+
+  @PostMapping(path = &quot;/accept&quot;)
+  public int acceptOrder(@RequestBody String jsonOrder)
+      throws UserNotExistException, OrderNotExistException, OrderAlreadyDeliverException {
+<span class="nc" id="L127">    JSONObject order = new JSONObject(jsonOrder);</span>
+<span class="nc" id="L128">    System.out.println(order);</span>
+<span class="nc" id="L129">    String orderId = order.getString(&quot;orderId&quot;);</span>
+<span class="nc" id="L130">    String driverId = order.getString(&quot;driverId&quot;);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">    if (driverService.getUser(driverId).isEmpty()) {</span>
+<span class="nc" id="L132">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L134">    int res = orderService.acceptOrder(orderId, driverId);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L136">      throw new OrderNotExistException(&quot;Order doesn't exist&quot;);</span>
+    }
+<span class="nc bnc" id="L138" title="All 2 branches missed.">    if (res == 0) {</span>
+<span class="nc" id="L139">      throw new OrderAlreadyDeliverException(&quot;Order in cart or already in delivery&quot;);</span>
+    }
+<span class="nc" id="L141">    return res;</span>
+  }
+
+  @PostMapping(path = &quot;/finish&quot;)
+  public int finishOrder(@RequestBody String jsonOrder)
+      throws OrderNotExistException, OrderAlreadyFinishException {
+<span class="nc" id="L147">    JSONObject order = new JSONObject(jsonOrder);</span>
+<span class="nc" id="L148">    String id = order.getString(&quot;orderId&quot;);</span>
+<span class="nc" id="L149">    int res = orderService.finishOrder(id);</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L151">      throw new OrderNotExistException(&quot;Order doesn't exist&quot;);</span>
+    }
+<span class="nc bnc" id="L153" title="All 2 branches missed.">    if (res == 0) {</span>
+<span class="nc" id="L154">      throw new OrderAlreadyFinishException(&quot;Order already finished&quot;);</span>
+    }
+<span class="nc" id="L156">    return res;</span>
+  }
+
+  @DeleteMapping(path = &quot;{id}&quot;)
+  public int deleterDriver(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException, OrderNotFinishedException {
+<span class="nc bnc" id="L162" title="All 2 branches missed.">    if (orderService.driverGetActiveOrder(id) != null) {</span>
+<span class="nc" id="L163">      throw new OrderNotFinishedException(&quot;You still have active orders, please finish them first&quot;);</span>
+    }
+<span class="nc" id="L165">    int res = driverService.deleteUser(id);</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L167">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L169">    return res;</span>
+  }
+
+  @PostMapping(path = &quot;/resetPassword&quot;)
+  public int resetPassword(@RequestBody String jsonPassword)
+      throws UserNotExistException, PasswordNotMatchException {
+<span class="nc" id="L175">    JSONObject object = new JSONObject(jsonPassword);</span>
+<span class="nc" id="L176">    String id = object.getString(&quot;id&quot;);</span>
+<span class="nc" id="L177">    String oldPassword = object.getString(&quot;oldPassword&quot;);</span>
+<span class="nc" id="L178">    String newPassword = object.getString(&quot;newPassword&quot;);</span>
+<span class="nc" id="L179">    int res = driverService.updatePassword(id, oldPassword, newPassword);</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L181">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc bnc" id="L183" title="All 2 branches missed.">    if (res == 0) {</span>
+<span class="nc" id="L184">      throw new PasswordNotMatchException(&quot;Password doesn't match&quot;);</span>
+    }
+<span class="nc" id="L186">    return res;</span>
+  }
+
+  @PostMapping(path = &quot;/resetPhone&quot;)
+  public int resetPhoneNumber(@RequestBody String jsonPhone)
+      throws UserNotExistException {
+<span class="nc" id="L192">    JSONObject object = new JSONObject(jsonPhone);</span>
+<span class="nc" id="L193">    String id = object.getString(&quot;id&quot;);</span>
+<span class="nc" id="L194">    String phoneNumber = object.getString(&quot;phoneNumber&quot;);</span>
+<span class="nc" id="L195">    int res = driverService.updatePhoneNumber(id, phoneNumber);</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L197">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L199">    return res;</span>
+  }
+
+  @PostMapping(path = &quot;/resetAddress&quot;)
+  public int resetAddress(@RequestBody String jsonAddress)
+      throws UserNotExistException {
+<span class="nc" id="L205">    JSONObject object = new JSONObject(jsonAddress);</span>
+<span class="nc" id="L206">    String id = object.getString(&quot;id&quot;);</span>
+<span class="nc" id="L207">    String address = object.getString(&quot;address&quot;);</span>
+<span class="nc" id="L208">    String city = object.getString(&quot;city&quot;);</span>
+<span class="nc" id="L209">    String state = object.getString(&quot;state&quot;);</span>
+<span class="nc" id="L210">    String zip = object.getString(&quot;zip&quot;);</span>
+<span class="nc" id="L211">    int res = driverService.updateAddress(id, address, city, state, zip);</span>
+<span class="nc bnc" id="L212" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L213">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L215">    return res;</span>
+  }
+
+  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+  @ExceptionHandler({UserNotExistException.class, PasswordNotMatchException.class,
+      UserAlreadyExistException.class, OrderNotExistException.class,
+      OrderAlreadyDeliverException.class, OrderAlreadyFinishException.class,
+      OrderNotFinishedException.class})
+  public String handleException(Exception e) {
+<span class="nc" id="L224">    return e.getMessage();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

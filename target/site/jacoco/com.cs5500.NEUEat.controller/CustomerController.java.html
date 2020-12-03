@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NEUEat</a> &gt; <a href="index.source.html" class="el_package">com.cs5500.NEUEat.controller</a> &gt; <span class="el_source">CustomerController.java</span></div><h1>CustomerController.java</h1><pre class="source lang-java linenums">package com.cs5500.NEUEat.controller;
+
+import com.cs5500.NEUEat.exception.OrderNotFinishedException;
+import com.cs5500.NEUEat.exception.PasswordNotMatchException;
+import com.cs5500.NEUEat.exception.UserAlreadyExistException;
+import com.cs5500.NEUEat.exception.UserNotExistException;
+import com.cs5500.NEUEat.model.Customer;
+import com.cs5500.NEUEat.model.Order;
+import com.cs5500.NEUEat.service.CustomerServiceImpl;
+import com.cs5500.NEUEat.service.OrderServiceImpl;
+import java.util.List;
+import java.util.Optional;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(&quot;/api/customer&quot;)
+public class CustomerController {
+
+  private final CustomerServiceImpl customerService;
+  private final OrderServiceImpl orderService;
+
+  @Autowired
+<span class="fc" id="L34">  public CustomerController(CustomerServiceImpl customerService, OrderServiceImpl orderService) {</span>
+<span class="fc" id="L35">    this.customerService = customerService;</span>
+<span class="fc" id="L36">    this.orderService = orderService;</span>
+<span class="fc" id="L37">  }</span>
+
+  @GetMapping(path = &quot;{id}&quot;)
+  public Customer getCustomerById(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException {
+<span class="nc" id="L42">    return customerService.getUser(id)</span>
+<span class="nc" id="L43">        .orElseThrow(() -&gt; new UserNotExistException(&quot;User doesn't exist&quot;));</span>
+  }
+
+  @PostMapping(path = &quot;/login&quot;)
+  public Customer loginCustomer(@RequestBody String jsonUser)
+      throws UserNotExistException, PasswordNotMatchException {
+
+<span class="nc" id="L50">    JSONObject user = new JSONObject(jsonUser);</span>
+<span class="nc" id="L51">    String userName = user.getString(&quot;userName&quot;);</span>
+<span class="nc" id="L52">    String password = user.getString(&quot;password&quot;);</span>
+<span class="nc" id="L53">    Optional&lt;Customer&gt; customer = customerService.getUserByName(userName);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">    if (customer.isEmpty()) {</span>
+<span class="nc" id="L55">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc bnc" id="L57" title="All 2 branches missed.">    if (!customerService.passwordMatch(customer.get().getId(), password)) {</span>
+<span class="nc" id="L58">      throw new PasswordNotMatchException(&quot;Password doesn't match&quot;);</span>
+    }
+<span class="nc" id="L60">    return customer.get();</span>
+  }
+
+  @PostMapping(path = &quot;/register&quot;)
+  public Customer registerCustomer(@RequestBody String jsonUser)
+      throws UserAlreadyExistException {
+
+<span class="nc" id="L67">    JSONObject user = new JSONObject(jsonUser);</span>
+<span class="nc" id="L68">    String userName = user.getString(&quot;userName&quot;);</span>
+<span class="nc" id="L69">    String password = user.getString(&quot;password&quot;);</span>
+<span class="nc" id="L70">    String phoneNumber = user.getString(&quot;phoneNumber&quot;);</span>
+<span class="nc" id="L71">    String address = user.getString(&quot;address&quot;);</span>
+<span class="nc" id="L72">    String city = user.getString(&quot;city&quot;);</span>
+<span class="nc" id="L73">    String state = user.getString(&quot;state&quot;);</span>
+<span class="nc" id="L74">    String zip = user.getString(&quot;zip&quot;);</span>
+<span class="nc" id="L75">    Customer customer = customerService</span>
+<span class="nc" id="L76">        .addUser(userName, password, phoneNumber, address, city, state, zip);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">    if (customer == null) {</span>
+<span class="nc" id="L78">      throw new UserAlreadyExistException(&quot;User already exists, please login&quot;);</span>
+    }
+<span class="nc" id="L80">    return customer;</span>
+  }
+
+  @PostMapping(path = &quot;/logout&quot;)
+  public int logoutCustomer() {
+<span class="nc" id="L85">    System.out.println(&quot;logout the user&quot;);</span>
+<span class="nc" id="L86">    return 1;</span>
+  }
+
+  @GetMapping(path = &quot;/myCart/&quot; + &quot;{id}&quot;)
+  public List&lt;Order&gt; getShoppingCart(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException {
+<span class="nc bnc" id="L92" title="All 2 branches missed.">    if (customerService.getUser(id).isEmpty()) {</span>
+<span class="nc" id="L93">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L95">    return orderService.customerCart(id);</span>
+  }
+
+  @GetMapping(path = &quot;/myActiveOrders/&quot; + &quot;{id}&quot;)
+  public List&lt;Order&gt; getActiveOrders(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException {
+<span class="nc bnc" id="L101" title="All 2 branches missed.">    if (customerService.getUser(id).isEmpty()) {</span>
+<span class="nc" id="L102">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L104">    return orderService.customerGetActiveOrders(id);</span>
+  }
+
+  @GetMapping(path = &quot;/myOrderHistory/&quot; + &quot;{id}&quot;)
+  public List&lt;Order&gt; getOrderHistory(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException {
+<span class="nc bnc" id="L110" title="All 2 branches missed.">    if (customerService.getUser(id).isEmpty()) {</span>
+<span class="nc" id="L111">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L113">    return orderService.customerFindPastOrders(id);</span>
+  }
+
+  @DeleteMapping(path = &quot;{id}&quot;)
+  public int deleterCustomer(@PathVariable(&quot;id&quot;) String id)
+      throws UserNotExistException, OrderNotFinishedException {
+<span class="nc bnc" id="L119" title="All 2 branches missed.">    if (orderService.customerGetActiveOrders(id).size() != 0) {</span>
+<span class="nc" id="L120">      throw new OrderNotFinishedException(&quot;You still have active orders, please finish them first&quot;);</span>
+    }
+<span class="nc" id="L122">    int res = customerService.deleteUser(id);</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L124">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L126">    return res;</span>
+  }
+
+  @PostMapping(path = &quot;/resetPassword&quot;)
+  public int resetPassword(@RequestBody String jsonPassword)
+      throws UserNotExistException, PasswordNotMatchException {
+<span class="nc" id="L132">    JSONObject object = new JSONObject(jsonPassword);</span>
+<span class="nc" id="L133">    String id = object.getString(&quot;id&quot;);</span>
+<span class="nc" id="L134">    String password = object.getString(&quot;password&quot;);</span>
+<span class="nc" id="L135">    String newPassword = object.getString(&quot;newPassword&quot;);</span>
+<span class="nc" id="L136">    int res = customerService.updatePassword(id, password, newPassword);</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L138">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc bnc" id="L140" title="All 2 branches missed.">    if (res == 0) {</span>
+<span class="nc" id="L141">      throw new PasswordNotMatchException(&quot;Password doesn't match&quot;);</span>
+    }
+<span class="nc" id="L143">    return res;</span>
+  }
+
+  @PostMapping(path = &quot;/resetPhone&quot;)
+  public int resetPhoneNumber(@RequestBody String jsonPhone)
+      throws UserNotExistException {
+<span class="nc" id="L149">    JSONObject object = new JSONObject(jsonPhone);</span>
+<span class="nc" id="L150">    String id = object.getString(&quot;id&quot;);</span>
+<span class="nc" id="L151">    String phoneNumber = object.getString(&quot;phoneNumber&quot;);</span>
+<span class="nc" id="L152">    int res = customerService.updatePhoneNumber(id, phoneNumber);</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L154">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L156">    return res;</span>
+  }
+
+  @PostMapping(path = &quot;/resetAddress&quot;)
+  public int resetAddress(@RequestBody String jsonAddress)
+      throws UserNotExistException {
+<span class="nc" id="L162">    JSONObject object = new JSONObject(jsonAddress);</span>
+<span class="nc" id="L163">    String id = object.getString(&quot;id&quot;);</span>
+<span class="nc" id="L164">    String address = object.getString(&quot;address&quot;);</span>
+<span class="nc" id="L165">    String city = object.getString(&quot;city&quot;);</span>
+<span class="nc" id="L166">    String state = object.getString(&quot;state&quot;);</span>
+<span class="nc" id="L167">    String zip = object.getString(&quot;zip&quot;);</span>
+<span class="nc" id="L168">    int res = customerService.updateAddress(id, address, city, state, zip);</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="nc" id="L170">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
+    }
+<span class="nc" id="L172">    return res;</span>
+  }
+
+  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+  @ExceptionHandler({UserNotExistException.class, PasswordNotMatchException.class,
+      UserAlreadyExistException.class, OrderNotFinishedException.class})
+  public String handleException(Exception e) {
+<span class="nc" id="L179">    return e.getMessage();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

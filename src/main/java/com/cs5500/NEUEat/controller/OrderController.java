@@ -45,8 +45,8 @@ public class OrderController {
     JSONArray shopcart = order.getJSONArray("shopcart");
     Gson gson = new Gson();
     List<Dish> list = new ArrayList<>();
-    for (Object object : shopcart) {
-      list.add(gson.fromJson(object.toString(), Dish.class));
+    for (int i = 0; i < shopcart.length(); i++) {
+      list.add(gson.fromJson(shopcart.getString(i), Dish.class));
     }
     return orderService.addOrderToCart(customerId, restaurantId, list);
   }
@@ -72,8 +72,8 @@ public class OrderController {
     JSONArray orderList = orders.getJSONArray("orders");
     Gson gson = new Gson();
     List<Order> list = new ArrayList<>();
-    for (Object object : orderList) {
-      list.add(gson.fromJson(object.toString(), Order.class));
+    for (int i = 0; i < orderList.length(); i++) {
+      list.add(gson.fromJson(orderList.getString(i), Order.class));
     }
     int res = orderService.checkoutAll(list);
     if (res == 0) {
