@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 4 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
-              <span class="suite-name border-passed">Surefire suite</span>
+              <span class="suite-name border-failed">Surefire suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,36 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods,   5 passed</span>
+                    <span class="method-stats">46 methods, 4 failed,   42 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.OrderControllerTest" class="method navigator-link" hash-for-method="addOrderToCart">addOrderToCart</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="deleterRestaurant">deleterRestaurant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="getActiveOrders">getActiveOrders</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="getOrderHistory">getOrderHistory</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,12 +131,17 @@
                     <div class="method-list-content passed suite-Surefire_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="acceptOrder">acceptOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.OrderControllerTest" class="method navigator-link" hash-for-method="addComment">addComment</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.OrderControllerTest" class="method navigator-link" hash-for-method="addOrderToCart">addOrderToCart</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="addDishToMenu">addDishToMenu</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -125,6 +159,186 @@
                         <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.OrderControllerTest" class="method navigator-link" hash-for-method="deleteOrder">deleteOrder</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="deleterCustomer">deleterCustomer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="deleterDriver">deleterDriver</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="finishOrder">finishOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="getActiveOrder">getActiveOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="getActiveOrders">getActiveOrders</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="getAllRestaurants">getAllRestaurants</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="getCustomerById">getCustomerById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="getDriverById">getDriverById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="getMenu">getMenu</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="getOrderHistory">getOrderHistory</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="getOrderHistory">getOrderHistory</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="getPendingOrders">getPendingOrders</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="getRestaurantById">getRestaurantById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="getRestaurantInformation">getRestaurantInformation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="getShoppingCart">getShoppingCart</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="loginCustomer">loginCustomer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="loginDriver">loginDriver</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="loginRestaurant">loginRestaurant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="logoutCustomer">logoutCustomer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="logoutDriver">logoutDriver</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="logoutRestaurant">logoutRestaurant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="registerCustomer">registerCustomer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="registerDriver">registerDriver</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="registerRestaurant">registerRestaurant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="removeDishToMenu">removeDishToMenu</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="resetAddress">resetAddress</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="resetAddress">resetAddress</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="resetAddress">resetAddress</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="resetPassword">resetPassword</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="resetPassword">resetPassword</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="resetPassword">resetPassword</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.CustomerControllerTest" class="method navigator-link" hash-for-method="resetPhoneNumber">resetPhoneNumber</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.DriverControllerTest" class="method navigator-link" hash-for-method="resetPhoneNumber">resetPhoneNumber</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="resetPhoneNumber">resetPhoneNumber</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="searchRestaurants">searchRestaurants</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.cs5500.NEUEat.controller.RestaurantControllerTest" class="method navigator-link" hash-for-method="updateRestaurantInformation">updateRestaurantInformation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content passed suite-Surefire_suite -->
                   </li>
                 </ul>
@@ -137,6 +351,553 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.cs5500.NEUEat.controller.RestaurantControllerTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleterRestaurant">
+                  </a> <!-- deleterRestaurant -->
+                  <span class="method-name">deleterRestaurant</span>
+                  <div class="stack-trace">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:931)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:65)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:167)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:155)
+	at com.cs5500.NEUEat.controller.RestaurantControllerTest.deleterRestaurant(RestaurantControllerTest.java:255)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+Caused by: java.lang.NullPointerException
+	at com.cs5500.NEUEat.service.OrderServiceImpl.lambda$restaurantGetActiveOrders$5(OrderServiceImpl.java:201)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:176)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1654)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at com.cs5500.NEUEat.service.OrderServiceImpl.restaurantGetActiveOrders(OrderServiceImpl.java:202)
+	at com.cs5500.NEUEat.controller.RestaurantController.deleterRestaurant(RestaurantController.java:222)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 58 more
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getActiveOrders">
+                  </a> <!-- getActiveOrders -->
+                  <span class="method-name">getActiveOrders</span>
+                  <div class="stack-trace">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:65)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:167)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:155)
+	at com.cs5500.NEUEat.controller.RestaurantControllerTest.getActiveOrders(RestaurantControllerTest.java:122)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+Caused by: java.lang.NullPointerException
+	at com.cs5500.NEUEat.service.OrderServiceImpl.lambda$restaurantGetActiveOrders$5(OrderServiceImpl.java:201)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:176)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1654)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at com.cs5500.NEUEat.service.OrderServiceImpl.restaurantGetActiveOrders(OrderServiceImpl.java:202)
+	at com.cs5500.NEUEat.controller.RestaurantController.getActiveOrders(RestaurantController.java:124)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 58 more
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getOrderHistory">
+                  </a> <!-- getOrderHistory -->
+                  <span class="method-name">getOrderHistory</span>
+                  <div class="stack-trace">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:65)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:167)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:155)
+	at com.cs5500.NEUEat.controller.RestaurantControllerTest.getOrderHistory(RestaurantControllerTest.java:136)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+Caused by: java.lang.NullPointerException
+	at com.cs5500.NEUEat.service.OrderServiceImpl.lambda$restaurantFindPastOrders$6(OrderServiceImpl.java:209)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:176)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1654)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578)
+	at com.cs5500.NEUEat.service.OrderServiceImpl.restaurantFindPastOrders(OrderServiceImpl.java:210)
+	at com.cs5500.NEUEat.controller.RestaurantController.getOrderHistory(RestaurantController.java:133)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 58 more
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.cs5500.NEUEat.controller.OrderControllerTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="addOrderToCart">
+                  </a> <!-- addOrderToCart -->
+                  <span class="method-name">addOrderToCart</span>
+                  <div class="stack-trace">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:65)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:167)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:155)
+	at com.cs5500.NEUEat.controller.OrderControllerTest.addOrderToCart(OrderControllerTest.java:59)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:252)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+Caused by: java.lang.NullPointerException
+	at com.cs5500.NEUEat.service.OrderServiceImpl.addOrderToCart(OrderServiceImpl.java:25)
+	at com.cs5500.NEUEat.controller.OrderController.addOrderToCart(OrderController.java:51)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 59 more
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.cs5500.NEUEat.controller.DriverControllerTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="acceptOrder">
+                  </a> <!-- acceptOrder -->
+                  <span class="method-name">acceptOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleterDriver">
+                  </a> <!-- deleterDriver -->
+                  <span class="method-name">deleterDriver</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="finishOrder">
+                  </a> <!-- finishOrder -->
+                  <span class="method-name">finishOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getActiveOrder">
+                  </a> <!-- getActiveOrder -->
+                  <span class="method-name">getActiveOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getDriverById">
+                  </a> <!-- getDriverById -->
+                  <span class="method-name">getDriverById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getOrderHistory">
+                  </a> <!-- getOrderHistory -->
+                  <span class="method-name">getOrderHistory</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getPendingOrders">
+                  </a> <!-- getPendingOrders -->
+                  <span class="method-name">getPendingOrders</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loginDriver">
+                  </a> <!-- loginDriver -->
+                  <span class="method-name">loginDriver</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logoutDriver">
+                  </a> <!-- logoutDriver -->
+                  <span class="method-name">logoutDriver</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="registerDriver">
+                  </a> <!-- registerDriver -->
+                  <span class="method-name">registerDriver</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetAddress">
+                  </a> <!-- resetAddress -->
+                  <span class="method-name">resetAddress</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetPassword">
+                  </a> <!-- resetPassword -->
+                  <span class="method-name">resetPassword</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetPhoneNumber">
+                  </a> <!-- resetPhoneNumber -->
+                  <span class="method-name">resetPhoneNumber</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.cs5500.NEUEat.controller.RestaurantControllerTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="addDishToMenu">
+                  </a> <!-- addDishToMenu -->
+                  <span class="method-name">addDishToMenu</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getAllRestaurants">
+                  </a> <!-- getAllRestaurants -->
+                  <span class="method-name">getAllRestaurants</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getMenu">
+                  </a> <!-- getMenu -->
+                  <span class="method-name">getMenu</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getRestaurantById">
+                  </a> <!-- getRestaurantById -->
+                  <span class="method-name">getRestaurantById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getRestaurantInformation">
+                  </a> <!-- getRestaurantInformation -->
+                  <span class="method-name">getRestaurantInformation</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loginRestaurant">
+                  </a> <!-- loginRestaurant -->
+                  <span class="method-name">loginRestaurant</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logoutRestaurant">
+                  </a> <!-- logoutRestaurant -->
+                  <span class="method-name">logoutRestaurant</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="registerRestaurant">
+                  </a> <!-- registerRestaurant -->
+                  <span class="method-name">registerRestaurant</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="removeDishToMenu">
+                  </a> <!-- removeDishToMenu -->
+                  <span class="method-name">removeDishToMenu</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetAddress">
+                  </a> <!-- resetAddress -->
+                  <span class="method-name">resetAddress</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetPassword">
+                  </a> <!-- resetPassword -->
+                  <span class="method-name">resetPassword</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetPhoneNumber">
+                  </a> <!-- resetPhoneNumber -->
+                  <span class="method-name">resetPhoneNumber</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="searchRestaurants">
+                  </a> <!-- searchRestaurants -->
+                  <span class="method-name">searchRestaurants</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="updateRestaurantInformation">
+                  </a> <!-- updateRestaurantInformation -->
+                  <span class="method-name">updateRestaurantInformation</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.cs5500.NEUEat.controller.CustomerControllerTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleterCustomer">
+                  </a> <!-- deleterCustomer -->
+                  <span class="method-name">deleterCustomer</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getActiveOrders">
+                  </a> <!-- getActiveOrders -->
+                  <span class="method-name">getActiveOrders</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getCustomerById">
+                  </a> <!-- getCustomerById -->
+                  <span class="method-name">getCustomerById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getOrderHistory">
+                  </a> <!-- getOrderHistory -->
+                  <span class="method-name">getOrderHistory</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getShoppingCart">
+                  </a> <!-- getShoppingCart -->
+                  <span class="method-name">getShoppingCart</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loginCustomer">
+                  </a> <!-- loginCustomer -->
+                  <span class="method-name">loginCustomer</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logoutCustomer">
+                  </a> <!-- logoutCustomer -->
+                  <span class="method-name">logoutCustomer</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="registerCustomer">
+                  </a> <!-- registerCustomer -->
+                  <span class="method-name">registerCustomer</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetAddress">
+                  </a> <!-- resetAddress -->
+                  <span class="method-name">resetAddress</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetPassword">
+                  </a> <!-- resetPassword -->
+                  <span class="method-name">resetPassword</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="resetPhoneNumber">
+                  </a> <!-- resetPhoneNumber -->
+                  <span class="method-name">resetPhoneNumber</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
           <div class="suite-Surefire_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -148,13 +909,6 @@
                   <a name="addComment">
                   </a> <!-- addComment -->
                   <span class="method-name">addComment</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="addOrderToCart">
-                  </a> <!-- addOrderToCart -->
-                  <span class="method-name">addOrderToCart</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -191,6 +945,9 @@
 &lt;suite thread-count=&quot;1&quot; junit=&quot;true&quot; name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
   &lt;test junit=&quot;true&quot; thread-count=&quot;1&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;com.cs5500.NEUEat.controller.CustomerControllerTest&quot;/&gt;
+      &lt;class name=&quot;com.cs5500.NEUEat.controller.RestaurantControllerTest&quot;/&gt;
+      &lt;class name=&quot;com.cs5500.NEUEat.controller.DriverControllerTest&quot;/&gt;
       &lt;class name=&quot;com.cs5500.NEUEat.controller.OrderControllerTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Surefire test --&gt;
@@ -205,7 +962,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Surefire test (1 class)</span>
+                <span class="test-name">Surefire test (4 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -231,32 +988,196 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(46);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'deleteComment')
-data.setCell(0, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
-data.setCell(0, 3, 4574);
+data.setCell(0, 1, 'logoutCustomer')
+data.setCell(0, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(0, 3, 6331);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'deleteOrder')
-data.setCell(1, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
-data.setCell(1, 3, 4560);
+data.setCell(1, 1, 'registerCustomer')
+data.setCell(1, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(1, 3, 6326);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'addComment')
-data.setCell(2, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
-data.setCell(2, 3, 4535);
+data.setCell(2, 1, 'resetPhoneNumber')
+data.setCell(2, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(2, 3, 6233);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'checkoutUsers')
-data.setCell(3, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
-data.setCell(3, 3, 4523);
+data.setCell(3, 1, 'getShoppingCart')
+data.setCell(3, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(3, 3, 6215);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'addOrderToCart')
-data.setCell(4, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
-data.setCell(4, 3, 4380);
+data.setCell(4, 1, 'resetPassword')
+data.setCell(4, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(4, 3, 6198);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'loginCustomer')
+data.setCell(5, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(5, 3, 6153);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'deleterCustomer')
+data.setCell(6, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(6, 3, 5975);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'getOrderHistory')
+data.setCell(7, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(7, 3, 5945);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'getActiveOrders')
+data.setCell(8, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(8, 3, 5903);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'resetAddress')
+data.setCell(9, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(9, 3, 5865);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'getCustomerById')
+data.setCell(10, 2, 'com.cs5500.NEUEat.controller.CustomerControllerTest')
+data.setCell(10, 3, 5836);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'logoutRestaurant')
+data.setCell(11, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(11, 3, 700);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'removeDishToMenu')
+data.setCell(12, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(12, 3, 685);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'resetPhoneNumber')
+data.setCell(13, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(13, 3, 664);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'resetPassword')
+data.setCell(14, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(14, 3, 650);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'loginRestaurant')
+data.setCell(15, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(15, 3, 635);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'deleterRestaurant')
+data.setCell(16, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(16, 3, 523);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'getMenu')
+data.setCell(17, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(17, 3, 495);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'addDishToMenu')
+data.setCell(18, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(18, 3, 472);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'getAllRestaurants')
+data.setCell(19, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(19, 3, 451);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'finishOrder')
+data.setCell(20, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(20, 3, 447);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'getRestaurantById')
+data.setCell(21, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(21, 3, 439);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'logoutDriver')
+data.setCell(22, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(22, 3, 430);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'registerRestaurant')
+data.setCell(23, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(23, 3, 421);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'loginDriver')
+data.setCell(24, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(24, 3, 416);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'searchRestaurants')
+data.setCell(25, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(25, 3, 316);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'acceptOrder')
+data.setCell(26, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(26, 3, 313);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'getDriverById')
+data.setCell(27, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(27, 3, 295);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'resetPhoneNumber')
+data.setCell(28, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(28, 3, 284);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'getOrderHistory')
+data.setCell(29, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(29, 3, 279);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'resetPassword')
+data.setCell(30, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(30, 3, 268);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'updateRestaurantInformation')
+data.setCell(31, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(31, 3, 251);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'getPendingOrders')
+data.setCell(32, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(32, 3, 250);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'getOrderHistory')
+data.setCell(33, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(33, 3, 209);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'registerDriver')
+data.setCell(34, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(34, 3, 183);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'deleteComment')
+data.setCell(35, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
+data.setCell(35, 3, 117);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'deleteOrder')
+data.setCell(36, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
+data.setCell(36, 3, 105);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'getActiveOrders')
+data.setCell(37, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(37, 3, 103);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'addComment')
+data.setCell(38, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
+data.setCell(38, 3, 89);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'checkoutUsers')
+data.setCell(39, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
+data.setCell(39, 3, 79);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'getActiveOrder')
+data.setCell(40, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(40, 3, 70);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'resetAddress')
+data.setCell(41, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(41, 3, 68);
+data.setCell(42, 0, 42)
+data.setCell(42, 1, 'deleterDriver')
+data.setCell(42, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(42, 3, 63);
+data.setCell(43, 0, 43)
+data.setCell(43, 1, 'getRestaurantInformation')
+data.setCell(43, 2, 'com.cs5500.NEUEat.controller.RestaurantControllerTest')
+data.setCell(43, 3, 40);
+data.setCell(44, 0, 44)
+data.setCell(44, 1, 'resetAddress')
+data.setCell(44, 2, 'com.cs5500.NEUEat.controller.DriverControllerTest')
+data.setCell(44, 3, 37);
+data.setCell(45, 0, 45)
+data.setCell(45, 1, 'addOrderToCart')
+data.setCell(45, 2, 'com.cs5500.NEUEat.controller.OrderControllerTest')
+data.setCell(45, 3, 31);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 22 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -282,26 +1203,207 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.cs5500.NEUEat.controller.OrderControllerTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.cs5500.NEUEat.controller.CustomerControllerTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">addOrderToCart</span>
+                <span class="method-name">getCustomerById</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">checkoutUsers</span>
+                <span class="method-name">resetAddress</span>
                 <span class="method-start">1 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getActiveOrders</span>
+                <span class="method-start">2 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getOrderHistory</span>
+                <span class="method-start">2 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleterCustomer</span>
+                <span class="method-start">2 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">loginCustomer</span>
+                <span class="method-start">2 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">resetPassword</span>
+                <span class="method-start">2 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getShoppingCart</span>
+                <span class="method-start">2 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">resetPhoneNumber</span>
+                <span class="method-start">2 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">registerCustomer</span>
+                <span class="method-start">2 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logoutCustomer</span>
+                <span class="method-start">3 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.cs5500.NEUEat.controller.RestaurantControllerTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">getRestaurantInformation</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">resetAddress</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">getActiveOrders</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">updateRestaurantInformation</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">getOrderHistory</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">searchRestaurants</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">registerRestaurant</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getRestaurantById</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getAllRestaurants</span>
+                <span class="method-start">6350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">addDishToMenu</span>
+                <span class="method-start">6351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getMenu</span>
+                <span class="method-start">6351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">deleterRestaurant</span>
+                <span class="method-start">6351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">loginRestaurant</span>
+                <span class="method-start">6351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">resetPassword</span>
+                <span class="method-start">6351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">resetPhoneNumber</span>
+                <span class="method-start">6351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">removeDishToMenu</span>
+                <span class="method-start">6351 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logoutRestaurant</span>
+                <span class="method-start">6351 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.cs5500.NEUEat.controller.DriverControllerTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">resetAddress</span>
+                <span class="method-start">7059 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">deleterDriver</span>
+                <span class="method-start">7059 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getActiveOrder</span>
+                <span class="method-start">7059 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">registerDriver</span>
+                <span class="method-start">7059 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getOrderHistory</span>
+                <span class="method-start">7059 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getPendingOrders</span>
+                <span class="method-start">7060 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">resetPassword</span>
+                <span class="method-start">7060 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">resetPhoneNumber</span>
+                <span class="method-start">7060 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getDriverById</span>
+                <span class="method-start">7060 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">acceptOrder</span>
+                <span class="method-start">7060 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">loginDriver</span>
+                <span class="method-start">7060 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">logoutDriver</span>
+                <span class="method-start">7060 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">finishOrder</span>
+                <span class="method-start">7061 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.cs5500.NEUEat.controller.OrderControllerTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">addOrderToCart</span>
+                <span class="method-start">7521 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkoutUsers</span>
+                <span class="method-start">7521 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">addComment</span>
-                <span class="method-start">1 ms</span>
+                <span class="method-start">7521 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">deleteOrder</span>
-                <span class="method-start">1 ms</span>
+                <span class="method-start">7521 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">deleteComment</span>
-                <span class="method-start">1 ms</span>
+                <span class="method-start">7521 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

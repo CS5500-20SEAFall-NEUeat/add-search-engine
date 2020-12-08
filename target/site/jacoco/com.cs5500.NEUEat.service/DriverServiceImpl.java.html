@@ -17,12 +17,12 @@ import org.springframework.stereotype.Service;
   @Override
   public Driver addUser(String userName, String password, String phoneNumber, String address,
       String city, String state, String zip) {
-<span class="nc bnc" id="L20" title="All 2 branches missed.">    if (this.getUserIdByName(userName) == null) {</span>
-<span class="nc" id="L21">      String newPassword = passwordService.generatePassword(password);</span>
-<span class="nc" id="L22">      Driver driver = new Driver(userName, newPassword, phoneNumber, address, city, state, zip);</span>
-<span class="nc" id="L23">      driverRepository.insert(driver);</span>
-<span class="nc" id="L24">      System.out.println(&quot;Driver added to the database&quot;);</span>
-<span class="nc" id="L25">      return driver;</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">    if (this.getUserIdByName(userName) == null) {</span>
+<span class="fc" id="L21">      String newPassword = passwordService.generatePassword(password);</span>
+<span class="fc" id="L22">      Driver driver = new Driver(userName, newPassword, phoneNumber, address, city, state, zip);</span>
+<span class="fc" id="L23">      driverRepository.insert(driver);</span>
+<span class="fc" id="L24">      System.out.println(&quot;Driver added to the database&quot;);</span>
+<span class="fc" id="L25">      return driver;</span>
     }
 <span class="nc" id="L27">    System.out.println(&quot;Driver can't be added to the database&quot;);</span>
 <span class="nc" id="L28">    return null;</span>
@@ -30,10 +30,10 @@ import org.springframework.stereotype.Service;
 
   @Override
   public int deleteUser(String id) {
-<span class="nc bnc" id="L33" title="All 2 branches missed.">    if (this.getUser(id).isPresent()) {</span>
-<span class="nc" id="L34">      driverRepository.deleteById(id);</span>
-<span class="nc" id="L35">      System.out.println(&quot;Driver deleted from the database&quot;);</span>
-<span class="nc" id="L36">      return 1;</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">    if (this.getUser(id).isPresent()) {</span>
+<span class="fc" id="L34">      driverRepository.deleteById(id);</span>
+<span class="fc" id="L35">      System.out.println(&quot;Driver deleted from the database&quot;);</span>
+<span class="fc" id="L36">      return 1;</span>
     }
 <span class="nc" id="L38">    System.out.println(&quot;Driver can't be deleted from the database&quot;);</span>
 <span class="nc" id="L39">    return -1;</span>
@@ -41,38 +41,38 @@ import org.springframework.stereotype.Service;
 
   @Override
   public Optional&lt;Driver&gt; getUser(String id) {
-<span class="nc bnc" id="L44" title="All 2 branches missed.">    if (id != null) {</span>
-<span class="nc" id="L45">      return driverRepository.findById(id);</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">    if (id != null) {</span>
+<span class="fc" id="L45">      return driverRepository.findById(id);</span>
     }
 <span class="nc" id="L47">    return Optional.empty();</span>
   }
 
   @Override
   public String getUserIdByName(String userName) {
-<span class="nc" id="L52">    List&lt;Driver&gt; drivers = this.getUsers();</span>
-<span class="nc bnc" id="L53" title="All 2 branches missed.">    for (Driver driver : drivers) {</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">      if (driver.getUserName().equals(userName)) {</span>
-<span class="nc" id="L55">        return driver.getId();</span>
+<span class="fc" id="L52">    List&lt;Driver&gt; drivers = this.getUsers();</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">    for (Driver driver : drivers) {</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">      if (driver.getUserName().equals(userName)) {</span>
+<span class="fc" id="L55">        return driver.getId();</span>
       }
 <span class="nc" id="L57">    }</span>
-<span class="nc" id="L58">    System.out.println(&quot;Given userName doesn't found in driver database&quot;);</span>
-<span class="nc" id="L59">    return null;</span>
+<span class="fc" id="L58">    System.out.println(&quot;Given userName doesn't found in driver database&quot;);</span>
+<span class="fc" id="L59">    return null;</span>
   }
 
   @Override
   public Optional&lt;Driver&gt; getUserByName(String userName) {
-<span class="nc" id="L64">    return this.getUser(getUserIdByName(userName));</span>
+<span class="fc" id="L64">    return this.getUser(getUserIdByName(userName));</span>
   }
 
   @Override
   public List&lt;Driver&gt; getUsers() {
-<span class="nc" id="L69">    return driverRepository.findAll();</span>
+<span class="fc" id="L69">    return driverRepository.findAll();</span>
   }
 
   @Override
   public boolean passwordMatch(String id, String password) {
-<span class="nc" id="L74">    Optional&lt;Driver&gt; driver = this.getUser(id);</span>
-<span class="nc bnc" id="L75" title="All 4 branches missed.">    return driver.isPresent() &amp;&amp; passwordService.passwordMatch(password, driver.get().getPassword());</span>
+<span class="fc" id="L74">    Optional&lt;Driver&gt; driver = this.getUser(id);</span>
+<span class="pc bpc" id="L75" title="2 of 4 branches missed.">    return driver.isPresent() &amp;&amp; passwordService.passwordMatch(password, driver.get().getPassword());</span>
   }
 
   @Override
@@ -95,12 +95,12 @@ import org.springframework.stereotype.Service;
 
   @Override
   public int updatePhoneNumber(String id, String newNumber) {
-<span class="nc" id="L98">    Optional&lt;Driver&gt; driver = this.getUser(id);</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">    if (driver.isPresent()) {</span>
-<span class="nc" id="L100">      driver.get().setPhoneNumber(newNumber);</span>
-<span class="nc" id="L101">      driverRepository.save(driver.get());</span>
-<span class="nc" id="L102">      System.out.println(&quot;Update the phone number&quot;);</span>
-<span class="nc" id="L103">      return 1;</span>
+<span class="fc" id="L98">    Optional&lt;Driver&gt; driver = this.getUser(id);</span>
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">    if (driver.isPresent()) {</span>
+<span class="fc" id="L100">      driver.get().setPhoneNumber(newNumber);</span>
+<span class="fc" id="L101">      driverRepository.save(driver.get());</span>
+<span class="fc" id="L102">      System.out.println(&quot;Update the phone number&quot;);</span>
+<span class="fc" id="L103">      return 1;</span>
     }
 <span class="nc" id="L105">    System.out.println(&quot;Can't update the phone number&quot;);</span>
 <span class="nc" id="L106">    return -1;</span>
@@ -109,15 +109,15 @@ import org.springframework.stereotype.Service;
   @Override
   public int updateAddress(String id, String address, String city, String state,
       String zip) {
-<span class="nc" id="L112">    Optional&lt;Driver&gt; driver = this.getUser(id);</span>
-<span class="nc bnc" id="L113" title="All 2 branches missed.">    if (driver.isPresent()) {</span>
-<span class="nc" id="L114">      driver.get().setAddress(address);</span>
-<span class="nc" id="L115">      driver.get().setCity(city);</span>
-<span class="nc" id="L116">      driver.get().setState(state);</span>
-<span class="nc" id="L117">      driver.get().setZip(zip);</span>
-<span class="nc" id="L118">      driverRepository.save(driver.get());</span>
-<span class="nc" id="L119">      System.out.println(&quot;Update the address&quot;);</span>
-<span class="nc" id="L120">      return 1;</span>
+<span class="fc" id="L112">    Optional&lt;Driver&gt; driver = this.getUser(id);</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">    if (driver.isPresent()) {</span>
+<span class="fc" id="L114">      driver.get().setAddress(address);</span>
+<span class="fc" id="L115">      driver.get().setCity(city);</span>
+<span class="fc" id="L116">      driver.get().setState(state);</span>
+<span class="fc" id="L117">      driver.get().setZip(zip);</span>
+<span class="fc" id="L118">      driverRepository.save(driver.get());</span>
+<span class="fc" id="L119">      System.out.println(&quot;Update the address&quot;);</span>
+<span class="fc" id="L120">      return 1;</span>
     }
 <span class="nc" id="L122">    System.out.println(&quot;Can't update the address&quot;);</span>
 <span class="nc" id="L123">    return -1;</span>

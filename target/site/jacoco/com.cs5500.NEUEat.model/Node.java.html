@@ -23,14 +23,14 @@ public class Node {
 <span class="fc" id="L23">  }</span>
 
   public void deleteRestaurant(String restaurantId) {
-<span class="nc bnc" id="L26" title="All 2 branches missed.">    if (this.infoMap.containsKey(restaurantId)) {</span>
-<span class="nc" id="L27">      int count = this.infoMap.get(restaurantId);</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">      if (count == 1) {</span>
-<span class="nc" id="L29">        this.infoMap.remove(restaurantId);</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">    if (this.infoMap.containsKey(restaurantId)) {</span>
+<span class="fc" id="L27">      int count = this.infoMap.get(restaurantId);</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">      if (count == 1) {</span>
+<span class="fc" id="L29">        this.infoMap.remove(restaurantId);</span>
       } else {
-<span class="nc" id="L31">        this.infoMap.put(restaurantId, count - 1);</span>
+<span class="fc" id="L31">        this.infoMap.put(restaurantId, count - 1);</span>
       }
     }
-<span class="nc" id="L34">  }</span>
+<span class="fc" id="L34">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
