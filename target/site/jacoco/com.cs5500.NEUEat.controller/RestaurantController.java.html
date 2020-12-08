@@ -48,116 +48,116 @@ public class RestaurantController {
 
   @GetMapping(path = &quot;/all&quot;)
   public List&lt;Restaurant&gt; getAllRestaurants() {
-<span class="nc" id="L51">    return restaurantService.getUsers();</span>
+<span class="fc" id="L51">    return restaurantService.getUsers();</span>
   }
 
   @GetMapping(path = &quot;/search/&quot; + &quot;{query}&quot;)
   public List&lt;Restaurant&gt; SearchRestaurants(@PathVariable(&quot;query&quot;) String query) {
-<span class="nc" id="L56">    List&lt;Restaurant&gt; res = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L57">    List&lt;String&gt; ids = searchEngineService.searchRestaurant(query);</span>
-<span class="nc bnc" id="L58" title="All 2 branches missed.">    if (ids != null) {</span>
-<span class="nc bnc" id="L59" title="All 2 branches missed.">      for (String id : ids) {</span>
-<span class="nc bnc" id="L60" title="All 2 branches missed.">        if (restaurantService.getUser(id).isPresent()) {</span>
-<span class="nc" id="L61">          res.add(restaurantService.getUser(id).get());</span>
+<span class="fc" id="L56">    List&lt;Restaurant&gt; res = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L57">    List&lt;String&gt; ids = searchEngineService.searchRestaurant(query);</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">    if (ids != null) {</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">      for (String id : ids) {</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">        if (restaurantService.getUser(id).isPresent()) {</span>
+<span class="fc" id="L61">          res.add(restaurantService.getUser(id).get());</span>
         }
-<span class="nc" id="L63">      }</span>
+<span class="fc" id="L63">      }</span>
     }
-<span class="nc" id="L65">    return res;</span>
+<span class="fc" id="L65">    return res;</span>
   }
 
   @GetMapping(path = &quot;{id}&quot;)
   public Restaurant getRestaurantById(@PathVariable(&quot;id&quot;) String id)
       throws UserNotExistException {
-<span class="nc" id="L71">    return restaurantService.getUser(id)</span>
-<span class="nc" id="L72">        .orElseThrow(() -&gt; new UserNotExistException(&quot;User doesn't exist&quot;));</span>
+<span class="fc" id="L71">    return restaurantService.getUser(id)</span>
+<span class="fc" id="L72">        .orElseThrow(() -&gt; new UserNotExistException(&quot;User doesn't exist&quot;));</span>
   }
 
   @PostMapping(path = &quot;/login&quot;)
   public Restaurant loginRestaurant(@RequestBody String jsonUser)
       throws UserNotExistException, PasswordNotMatchException {
 
-<span class="nc" id="L79">    JSONObject user = new JSONObject(jsonUser);</span>
-<span class="nc" id="L80">    String userName = user.getString(&quot;userName&quot;);</span>
-<span class="nc" id="L81">    String password = user.getString(&quot;password&quot;);</span>
-<span class="nc" id="L82">    Optional&lt;Restaurant&gt; restaurant = restaurantService.getUserByName(userName);</span>
-<span class="nc bnc" id="L83" title="All 2 branches missed.">    if (restaurant.isEmpty()) {</span>
+<span class="fc" id="L79">    JSONObject user = new JSONObject(jsonUser);</span>
+<span class="fc" id="L80">    String userName = user.getString(&quot;userName&quot;);</span>
+<span class="fc" id="L81">    String password = user.getString(&quot;password&quot;);</span>
+<span class="fc" id="L82">    Optional&lt;Restaurant&gt; restaurant = restaurantService.getUserByName(userName);</span>
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">    if (restaurant.isEmpty()) {</span>
 <span class="nc" id="L84">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
     }
-<span class="nc bnc" id="L86" title="All 2 branches missed.">    if (!restaurantService.passwordMatch(restaurant.get().getId(), password)) {</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">    if (!restaurantService.passwordMatch(restaurant.get().getId(), password)) {</span>
 <span class="nc" id="L87">      throw new PasswordNotMatchException(&quot;Password doesn't match&quot;);</span>
     }
-<span class="nc" id="L89">    return restaurant.get();</span>
+<span class="fc" id="L89">    return restaurant.get();</span>
   }
 
   @PostMapping(path = &quot;/register&quot;)
   public Restaurant registerRestaurant(@RequestBody String jsonUser)
       throws UserAlreadyExistException {
 
-<span class="nc" id="L96">    JSONObject user = new JSONObject(jsonUser);</span>
-<span class="nc" id="L97">    String userName = user.getString(&quot;userName&quot;);</span>
-<span class="nc" id="L98">    String password = user.getString(&quot;password&quot;);</span>
-<span class="nc" id="L99">    String phoneNumber = user.getString(&quot;phoneNumber&quot;);</span>
-<span class="nc" id="L100">    String address = user.getString(&quot;address&quot;);</span>
-<span class="nc" id="L101">    String city = user.getString(&quot;city&quot;);</span>
-<span class="nc" id="L102">    String state = user.getString(&quot;state&quot;);</span>
-<span class="nc" id="L103">    String zip = user.getString(&quot;zip&quot;);</span>
-<span class="nc" id="L104">    Restaurant restaurant = restaurantService</span>
-<span class="nc" id="L105">        .addUser(userName, password, phoneNumber, address, city, state, zip);</span>
-<span class="nc bnc" id="L106" title="All 2 branches missed.">    if (restaurant == null) {</span>
+<span class="fc" id="L96">    JSONObject user = new JSONObject(jsonUser);</span>
+<span class="fc" id="L97">    String userName = user.getString(&quot;userName&quot;);</span>
+<span class="fc" id="L98">    String password = user.getString(&quot;password&quot;);</span>
+<span class="fc" id="L99">    String phoneNumber = user.getString(&quot;phoneNumber&quot;);</span>
+<span class="fc" id="L100">    String address = user.getString(&quot;address&quot;);</span>
+<span class="fc" id="L101">    String city = user.getString(&quot;city&quot;);</span>
+<span class="fc" id="L102">    String state = user.getString(&quot;state&quot;);</span>
+<span class="fc" id="L103">    String zip = user.getString(&quot;zip&quot;);</span>
+<span class="fc" id="L104">    Restaurant restaurant = restaurantService</span>
+<span class="fc" id="L105">        .addUser(userName, password, phoneNumber, address, city, state, zip);</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">    if (restaurant == null) {</span>
 <span class="nc" id="L107">      throw new UserAlreadyExistException(&quot;User already exists, please login&quot;);</span>
     }
-<span class="nc" id="L109">    return restaurant;</span>
+<span class="fc" id="L109">    return restaurant;</span>
   }
 
   @PostMapping(path = &quot;/logout&quot;)
   public int logoutRestaurant() {
-<span class="nc" id="L114">    System.out.println(&quot;logout the user&quot;);</span>
-<span class="nc" id="L115">    return 1;</span>
+<span class="fc" id="L114">    System.out.println(&quot;logout the user&quot;);</span>
+<span class="fc" id="L115">    return 1;</span>
   }
 
   @GetMapping(path = &quot;/myActiveOrders/&quot; + &quot;{id}&quot;)
   public List&lt;Order&gt; getActiveOrders(@PathVariable(&quot;id&quot;) String id)
       throws UserNotExistException {
-<span class="nc bnc" id="L121" title="All 2 branches missed.">    if (restaurantService.getUser(id).isEmpty()) {</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">    if (restaurantService.getUser(id).isEmpty()) {</span>
 <span class="nc" id="L122">      throw new UserNotExistException(&quot;The given restaurant doesn't exist&quot;);</span>
     }
-<span class="nc" id="L124">    return orderService.restaurantGetActiveOrders(id);</span>
+<span class="fc" id="L124">    return orderService.restaurantGetActiveOrders(id);</span>
   }
 
   @GetMapping(path = &quot;/myOrderHistory/&quot; + &quot;{id}&quot;)
   public List&lt;Order&gt; getOrderHistory(@PathVariable(&quot;id&quot;) String id)
       throws UserNotExistException {
-<span class="nc bnc" id="L130" title="All 2 branches missed.">    if (restaurantService.getUser(id).isEmpty()) {</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">    if (restaurantService.getUser(id).isEmpty()) {</span>
 <span class="nc" id="L131">      throw new UserNotExistException(&quot;The given restaurant doesn't exist&quot;);</span>
     }
-<span class="nc" id="L133">    return orderService.restaurantFindPastOrders(id);</span>
+<span class="fc" id="L133">    return orderService.restaurantFindPastOrders(id);</span>
   }
 
   @GetMapping(path = &quot;/menu/&quot; + &quot;{id}&quot;)
   public List&lt;Dish&gt; getMenu(@PathVariable(&quot;id&quot;) String id)
       throws UserNotExistException {
-<span class="nc bnc" id="L139" title="All 2 branches missed.">    if (restaurantService.getUser(id).isEmpty()) {</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">    if (restaurantService.getUser(id).isEmpty()) {</span>
 <span class="nc" id="L140">      throw new UserNotExistException(&quot;The given restaurant doesn't exist&quot;);</span>
     }
-<span class="nc" id="L142">    return restaurantService.getAllDishes(id);</span>
+<span class="fc" id="L142">    return restaurantService.getAllDishes(id);</span>
   }
 
   @PostMapping(path = &quot;/addToMenu&quot;)
   public int addDishToMenu(@RequestBody String jsonDish)
       throws UserNotExistException {
-<span class="nc" id="L148">    JSONObject dish = new JSONObject(jsonDish);</span>
-<span class="nc" id="L149">    String restaurantId = dish.getString(&quot;restaurantId&quot;);</span>
-<span class="nc" id="L150">    String dishName = dish.getString(&quot;dishName&quot;);</span>
-<span class="nc" id="L151">    String imageUrl = dish.getString(&quot;imageUrl&quot;);</span>
-<span class="nc" id="L152">    double price = dish.getDouble(&quot;price&quot;);</span>
-<span class="nc" id="L153">    Dish newDish = new Dish(dishName, price, imageUrl);</span>
-<span class="nc" id="L154">    int res = restaurantService.addDish(restaurantId, newDish);</span>
-<span class="nc bnc" id="L155" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="fc" id="L148">    JSONObject dish = new JSONObject(jsonDish);</span>
+<span class="fc" id="L149">    String restaurantId = dish.getString(&quot;restaurantId&quot;);</span>
+<span class="fc" id="L150">    String dishName = dish.getString(&quot;dishName&quot;);</span>
+<span class="fc" id="L151">    String imageUrl = dish.getString(&quot;imageUrl&quot;);</span>
+<span class="fc" id="L152">    double price = dish.getDouble(&quot;price&quot;);</span>
+<span class="fc" id="L153">    Dish newDish = new Dish(dishName, price, imageUrl);</span>
+<span class="fc" id="L154">    int res = restaurantService.addDish(restaurantId, newDish);</span>
+<span class="pc bpc" id="L155" title="1 of 2 branches missed.">    if (res == -1) {</span>
 <span class="nc" id="L156">      throw new UserNotExistException(&quot;The given restaurant doesn't exist&quot;);</span>
     }
     // handle search engine
-<span class="nc" id="L159">    searchEngineService.addRestaurant(dishName, restaurantId);</span>
-<span class="nc" id="L160">    return res;</span>
+<span class="fc" id="L159">    searchEngineService.addRestaurant(dishName, restaurantId);</span>
+<span class="fc" id="L160">    return res;</span>
   }
 
   @PostMapping(path = &quot;/removeDish&quot;)
@@ -183,8 +183,8 @@ public class RestaurantController {
   @GetMapping(path = &quot;/information/&quot; + &quot;{id}&quot;)
   public RestaurantInfo getRestaurantInformation(@PathVariable(&quot;id&quot;) String id)
       throws UserNotExistException {
-<span class="nc bnc" id="L186" title="All 2 branches missed.">    if (restaurantService.getInformation(id) != null) {</span>
-<span class="nc" id="L187">      return restaurantService.getInformation(id);</span>
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">    if (restaurantService.getInformation(id) != null) {</span>
+<span class="fc" id="L187">      return restaurantService.getInformation(id);</span>
     }
 <span class="nc" id="L189">    throw new UserNotExistException(&quot;The given restaurant doesn't exist&quot;);</span>
   }
@@ -192,50 +192,50 @@ public class RestaurantController {
   @PostMapping(path = &quot;/information&quot;)
   public int updateRestaurantInformation(@RequestBody String jsonInfo)
       throws UserNotExistException {
-<span class="nc" id="L195">    JSONObject object = new JSONObject(jsonInfo);</span>
-<span class="nc" id="L196">    String restaurantId = object.getString(&quot;restaurantId&quot;);</span>
-<span class="nc" id="L197">    boolean open = object.getBoolean(&quot;status&quot;);</span>
-<span class="nc" id="L198">    String name = object.getString(&quot;name&quot;);</span>
-<span class="nc" id="L199">    String description = object.getString(&quot;description&quot;);</span>
-<span class="nc" id="L200">    String imageUrl = object.getString(&quot;imageUrl&quot;);</span>
-<span class="nc" id="L201">    String tag1 = object.getString(&quot;tag1&quot;);</span>
-<span class="nc" id="L202">    String tag2 = object.getString(&quot;tag2&quot;);</span>
-<span class="nc" id="L203">    String tag3 = object.getString(&quot;tag3&quot;);</span>
-<span class="nc" id="L204">    RestaurantInfo newInfo = new RestaurantInfo(open, name, description, imageUrl, tag1, tag2,</span>
+<span class="fc" id="L195">    JSONObject object = new JSONObject(jsonInfo);</span>
+<span class="fc" id="L196">    String restaurantId = object.getString(&quot;restaurantId&quot;);</span>
+<span class="fc" id="L197">    boolean open = object.getBoolean(&quot;status&quot;);</span>
+<span class="fc" id="L198">    String name = object.getString(&quot;name&quot;);</span>
+<span class="fc" id="L199">    String description = object.getString(&quot;description&quot;);</span>
+<span class="fc" id="L200">    String imageUrl = object.getString(&quot;imageUrl&quot;);</span>
+<span class="fc" id="L201">    String tag1 = object.getString(&quot;tag1&quot;);</span>
+<span class="fc" id="L202">    String tag2 = object.getString(&quot;tag2&quot;);</span>
+<span class="fc" id="L203">    String tag3 = object.getString(&quot;tag3&quot;);</span>
+<span class="fc" id="L204">    RestaurantInfo newInfo = new RestaurantInfo(open, name, description, imageUrl, tag1, tag2,</span>
         tag3);
     // handle search engine
-<span class="nc" id="L207">    RestaurantInfo oldInfo = restaurantService.getInformation(restaurantId);</span>
-<span class="nc bnc" id="L208" title="All 2 branches missed.">    if (oldInfo != null) {</span>
-<span class="nc" id="L209">      searchEngineService.eraseInfo(oldInfo, restaurantId);</span>
+<span class="fc" id="L207">    RestaurantInfo oldInfo = restaurantService.getInformation(restaurantId);</span>
+<span class="pc bpc" id="L208" title="1 of 2 branches missed.">    if (oldInfo != null) {</span>
+<span class="fc" id="L209">      searchEngineService.eraseInfo(oldInfo, restaurantId);</span>
     }
-<span class="nc" id="L211">    searchEngineService.updateInfo(newInfo, restaurantId);</span>
-<span class="nc" id="L212">    int res = restaurantService.updateInfo(restaurantId, newInfo);</span>
-<span class="nc bnc" id="L213" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="fc" id="L211">    searchEngineService.updateInfo(newInfo, restaurantId);</span>
+<span class="fc" id="L212">    int res = restaurantService.updateInfo(restaurantId, newInfo);</span>
+<span class="pc bpc" id="L213" title="1 of 2 branches missed.">    if (res == -1) {</span>
 <span class="nc" id="L214">      throw new UserNotExistException(&quot;The given restaurant doesn't exist&quot;);</span>
     }
-<span class="nc" id="L216">    return res;</span>
+<span class="fc" id="L216">    return res;</span>
   }
 
   @DeleteMapping(path = &quot;{id}&quot;)
   public int deleterRestaurant(@PathVariable(&quot;id&quot;) String id)
       throws UserNotExistException, OrderNotFinishedException {
-<span class="nc bnc" id="L222" title="All 2 branches missed.">    if (orderService.restaurantGetActiveOrders(id).size() != 0) {</span>
+<span class="pc bpc" id="L222" title="1 of 2 branches missed.">    if (orderService.restaurantGetActiveOrders(id).size() != 0) {</span>
 <span class="nc" id="L223">      throw new OrderNotFinishedException(&quot;You still have active orders, please finish them first&quot;);</span>
     }
     // handle search engine
-<span class="nc" id="L226">    RestaurantInfo oldInfo = restaurantService.getInformation(id);</span>
-<span class="nc bnc" id="L227" title="All 2 branches missed.">    if (oldInfo != null) {</span>
-<span class="nc" id="L228">      searchEngineService.eraseInfo(oldInfo, id);</span>
+<span class="fc" id="L226">    RestaurantInfo oldInfo = restaurantService.getInformation(id);</span>
+<span class="pc bpc" id="L227" title="1 of 2 branches missed.">    if (oldInfo != null) {</span>
+<span class="fc" id="L228">      searchEngineService.eraseInfo(oldInfo, id);</span>
     }
-<span class="nc" id="L230">    List&lt;Dish&gt; dishes = restaurantService.getAllDishes(id);</span>
-<span class="nc bnc" id="L231" title="All 2 branches missed.">    if (dishes != null) {</span>
-<span class="nc" id="L232">      searchEngineService.eraseDishes(dishes, id);</span>
+<span class="fc" id="L230">    List&lt;Dish&gt; dishes = restaurantService.getAllDishes(id);</span>
+<span class="pc bpc" id="L231" title="1 of 2 branches missed.">    if (dishes != null) {</span>
+<span class="fc" id="L232">      searchEngineService.eraseDishes(dishes, id);</span>
     }
-<span class="nc" id="L234">    int res = restaurantService.deleteUser(id);</span>
-<span class="nc bnc" id="L235" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="fc" id="L234">    int res = restaurantService.deleteUser(id);</span>
+<span class="pc bpc" id="L235" title="1 of 2 branches missed.">    if (res == -1) {</span>
 <span class="nc" id="L236">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
     }
-<span class="nc" id="L238">    return res;</span>
+<span class="fc" id="L238">    return res;</span>
   }
 
   @PostMapping(path = &quot;/resetPassword&quot;)
@@ -258,30 +258,30 @@ public class RestaurantController {
   @PostMapping(path = &quot;/resetPhone&quot;)
   public int resetPhoneNumber(@RequestBody String jsonPhone)
       throws UserNotExistException {
-<span class="nc" id="L261">    JSONObject object = new JSONObject(jsonPhone);</span>
-<span class="nc" id="L262">    String id = object.getString(&quot;id&quot;);</span>
-<span class="nc" id="L263">    String phoneNumber = object.getString(&quot;phoneNumber&quot;);</span>
-<span class="nc" id="L264">    int res = restaurantService.updatePhoneNumber(id, phoneNumber);</span>
-<span class="nc bnc" id="L265" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="fc" id="L261">    JSONObject object = new JSONObject(jsonPhone);</span>
+<span class="fc" id="L262">    String id = object.getString(&quot;id&quot;);</span>
+<span class="fc" id="L263">    String phoneNumber = object.getString(&quot;phoneNumber&quot;);</span>
+<span class="fc" id="L264">    int res = restaurantService.updatePhoneNumber(id, phoneNumber);</span>
+<span class="pc bpc" id="L265" title="1 of 2 branches missed.">    if (res == -1) {</span>
 <span class="nc" id="L266">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
     }
-<span class="nc" id="L268">    return res;</span>
+<span class="fc" id="L268">    return res;</span>
   }
 
   @PostMapping(path = &quot;/resetAddress&quot;)
   public int resetAddress(@RequestBody String jsonAddress)
       throws UserNotExistException {
-<span class="nc" id="L274">    JSONObject object = new JSONObject(jsonAddress);</span>
-<span class="nc" id="L275">    String id = object.getString(&quot;id&quot;);</span>
-<span class="nc" id="L276">    String address = object.getString(&quot;address&quot;);</span>
-<span class="nc" id="L277">    String city = object.getString(&quot;city&quot;);</span>
-<span class="nc" id="L278">    String state = object.getString(&quot;state&quot;);</span>
-<span class="nc" id="L279">    String zip = object.getString(&quot;zip&quot;);</span>
-<span class="nc" id="L280">    int res = restaurantService.updateAddress(id, address, city, state, zip);</span>
-<span class="nc bnc" id="L281" title="All 2 branches missed.">    if (res == -1) {</span>
+<span class="fc" id="L274">    JSONObject object = new JSONObject(jsonAddress);</span>
+<span class="fc" id="L275">    String id = object.getString(&quot;id&quot;);</span>
+<span class="fc" id="L276">    String address = object.getString(&quot;address&quot;);</span>
+<span class="fc" id="L277">    String city = object.getString(&quot;city&quot;);</span>
+<span class="fc" id="L278">    String state = object.getString(&quot;state&quot;);</span>
+<span class="fc" id="L279">    String zip = object.getString(&quot;zip&quot;);</span>
+<span class="fc" id="L280">    int res = restaurantService.updateAddress(id, address, city, state, zip);</span>
+<span class="pc bpc" id="L281" title="1 of 2 branches missed.">    if (res == -1) {</span>
 <span class="nc" id="L282">      throw new UserNotExistException(&quot;User doesn't exist&quot;);</span>
     }
-<span class="nc" id="L284">    return res;</span>
+<span class="fc" id="L284">    return res;</span>
   }
 
   @GetMapping(path = &quot;/getComments/&quot; + &quot;{id}&quot;)
@@ -297,7 +297,7 @@ public class RestaurantController {
       UserAlreadyExistException.class, DishNotExistException.class,
       OrderNotFinishedException.class})
   public String handleException(Exception e) {
-<span class="nc" id="L300">    return e.getMessage();</span>
+<span class="fc" id="L300">    return e.getMessage();</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

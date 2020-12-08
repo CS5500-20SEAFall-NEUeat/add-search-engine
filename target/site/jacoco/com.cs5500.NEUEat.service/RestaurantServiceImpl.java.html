@@ -23,20 +23,20 @@ import org.springframework.stereotype.Service;
 
   @Override
   public int addDish(String id, Dish dish) {
-<span class="nc" id="L26">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">    if (restaurant.isPresent()) {</span>
+<span class="fc" id="L26">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">    if (restaurant.isPresent()) {</span>
       Set&lt;Dish&gt; set;
-<span class="nc bnc" id="L29" title="All 2 branches missed.">      if (restaurant.get().getMenu() == null) {</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">      if (restaurant.get().getMenu() == null) {</span>
 <span class="nc" id="L30">        set = new HashSet&lt;&gt;();</span>
       } else {
-<span class="nc" id="L32">        set = new HashSet&lt;&gt;(restaurant.get().getMenu());</span>
+<span class="fc" id="L32">        set = new HashSet&lt;&gt;(restaurant.get().getMenu());</span>
       }
-<span class="nc" id="L34">      set.add(dish);</span>
-<span class="nc" id="L35">      restaurant.get().setMenu(new ArrayList&lt;&gt;(set));</span>
-<span class="nc" id="L36">      restaurantRepository.save(restaurant.get());</span>
+<span class="fc" id="L34">      set.add(dish);</span>
+<span class="fc" id="L35">      restaurant.get().setMenu(new ArrayList&lt;&gt;(set));</span>
+<span class="fc" id="L36">      restaurantRepository.save(restaurant.get());</span>
 
-<span class="nc" id="L38">      System.out.println(&quot;Add the dish&quot;);</span>
-<span class="nc" id="L39">      return 1;</span>
+<span class="fc" id="L38">      System.out.println(&quot;Add the dish&quot;);</span>
+<span class="fc" id="L39">      return 1;</span>
     }
 <span class="nc" id="L41">    System.out.println(&quot;Can't add the dish&quot;);</span>
 <span class="nc" id="L42">    return -1;</span>
@@ -65,20 +65,20 @@ import org.springframework.stereotype.Service;
 
   @Override
   public List&lt;Dish&gt; getAllDishes(String id) {
-<span class="nc" id="L68">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
-<span class="nc" id="L69">    System.out.println(&quot;Get all dishes from restaurant: &quot; + id);</span>
-<span class="nc" id="L70">    return restaurant.map(Restaurant::getMenu).orElse(null);</span>
+<span class="fc" id="L68">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
+<span class="fc" id="L69">    System.out.println(&quot;Get all dishes from restaurant: &quot; + id);</span>
+<span class="fc" id="L70">    return restaurant.map(Restaurant::getMenu).orElse(null);</span>
   }
 
   @Override
   public RestaurantInfo getInformation(String id) {
-<span class="nc" id="L75">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
-<span class="nc bnc" id="L76" title="All 2 branches missed.">    if (restaurant.isPresent()) {</span>
-<span class="nc" id="L77">      System.out.println(&quot;Get the restaurant information&quot;);</span>
-<span class="nc bnc" id="L78" title="All 2 branches missed.">      if (restaurant.get().getInformation() == null) {</span>
+<span class="fc" id="L75">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">    if (restaurant.isPresent()) {</span>
+<span class="fc" id="L77">      System.out.println(&quot;Get the restaurant information&quot;);</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">      if (restaurant.get().getInformation() == null) {</span>
 <span class="nc" id="L79">        return new RestaurantInfo();</span>
       } else {
-<span class="nc" id="L81">        return restaurant.get().getInformation();</span>
+<span class="fc" id="L81">        return restaurant.get().getInformation();</span>
       }
     }
 <span class="nc" id="L84">    return null;</span>
@@ -86,13 +86,13 @@ import org.springframework.stereotype.Service;
 
   @Override
   public int updateInfo(String id, RestaurantInfo info) {
-<span class="nc" id="L89">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
-<span class="nc bnc" id="L90" title="All 2 branches missed.">    if (restaurant.isPresent()) {</span>
+<span class="fc" id="L89">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">    if (restaurant.isPresent()) {</span>
 
-<span class="nc" id="L92">      restaurant.get().setInformation(info);</span>
-<span class="nc" id="L93">      restaurantRepository.save(restaurant.get());</span>
-<span class="nc" id="L94">      System.out.println(&quot;Update the information&quot;);</span>
-<span class="nc" id="L95">      return 1;</span>
+<span class="fc" id="L92">      restaurant.get().setInformation(info);</span>
+<span class="fc" id="L93">      restaurantRepository.save(restaurant.get());</span>
+<span class="fc" id="L94">      System.out.println(&quot;Update the information&quot;);</span>
+<span class="fc" id="L95">      return 1;</span>
     }
 <span class="nc" id="L97">    System.out.println(&quot;Can't update the information&quot;);</span>
 <span class="nc" id="L98">    return -1;</span>
@@ -101,14 +101,14 @@ import org.springframework.stereotype.Service;
   @Override
   public Restaurant addUser(String userName, String password, String phoneNumber, String address,
       String city, String state, String zip) {
-<span class="nc bnc" id="L104" title="All 2 branches missed.">    if (this.getUserIdByName(userName) == null) {</span>
-<span class="nc" id="L105">      String newPassword = passwordService.generatePassword(password);</span>
-<span class="nc" id="L106">      Restaurant restaurant = new Restaurant(userName, newPassword, phoneNumber, address, city,</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">    if (this.getUserIdByName(userName) == null) {</span>
+<span class="fc" id="L105">      String newPassword = passwordService.generatePassword(password);</span>
+<span class="fc" id="L106">      Restaurant restaurant = new Restaurant(userName, newPassword, phoneNumber, address, city,</span>
           state,
           zip);
-<span class="nc" id="L109">      restaurantRepository.insert(restaurant);</span>
-<span class="nc" id="L110">      System.out.println(&quot;Restaurant added to the database&quot;);</span>
-<span class="nc" id="L111">      return restaurant;</span>
+<span class="fc" id="L109">      restaurantRepository.insert(restaurant);</span>
+<span class="fc" id="L110">      System.out.println(&quot;Restaurant added to the database&quot;);</span>
+<span class="fc" id="L111">      return restaurant;</span>
     }
 <span class="nc" id="L113">    System.out.println(&quot;Restaurant can't be added to the database&quot;);</span>
 <span class="nc" id="L114">    return null;</span>
@@ -116,10 +116,10 @@ import org.springframework.stereotype.Service;
 
   @Override
   public int deleteUser(String id) {
-<span class="nc bnc" id="L119" title="All 2 branches missed.">    if (this.getUser(id).isPresent()) {</span>
-<span class="nc" id="L120">      restaurantRepository.deleteById(id);</span>
-<span class="nc" id="L121">      System.out.println(&quot;Restaurant deleted from the database&quot;);</span>
-<span class="nc" id="L122">      return 1;</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">    if (this.getUser(id).isPresent()) {</span>
+<span class="fc" id="L120">      restaurantRepository.deleteById(id);</span>
+<span class="fc" id="L121">      System.out.println(&quot;Restaurant deleted from the database&quot;);</span>
+<span class="fc" id="L122">      return 1;</span>
     }
 <span class="nc" id="L124">    System.out.println(&quot;Restaurant can't be deleted from the database&quot;);</span>
 <span class="nc" id="L125">    return -1;</span>
@@ -127,39 +127,39 @@ import org.springframework.stereotype.Service;
 
   @Override
   public Optional&lt;Restaurant&gt; getUser(String id) {
-<span class="nc bnc" id="L130" title="All 2 branches missed.">    if (id != null) {</span>
-<span class="nc" id="L131">      return restaurantRepository.findById(id);</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">    if (id != null) {</span>
+<span class="fc" id="L131">      return restaurantRepository.findById(id);</span>
     }
 <span class="nc" id="L133">    return Optional.empty();</span>
   }
 
   @Override
   public String getUserIdByName(String userName) {
-<span class="nc" id="L138">    List&lt;Restaurant&gt; restaurants = this.getUsers();</span>
-<span class="nc bnc" id="L139" title="All 2 branches missed.">    for (Restaurant restaurant : restaurants) {</span>
-<span class="nc bnc" id="L140" title="All 2 branches missed.">      if (restaurant.getUserName().equals(userName)) {</span>
-<span class="nc" id="L141">        return restaurant.getId();</span>
+<span class="fc" id="L138">    List&lt;Restaurant&gt; restaurants = this.getUsers();</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">    for (Restaurant restaurant : restaurants) {</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">      if (restaurant.getUserName().equals(userName)) {</span>
+<span class="fc" id="L141">        return restaurant.getId();</span>
       }
-<span class="nc" id="L143">    }</span>
-<span class="nc" id="L144">    System.out.println(&quot;Given userName doesn't found in restaurant database&quot;);</span>
-<span class="nc" id="L145">    return null;</span>
+<span class="fc" id="L143">    }</span>
+<span class="fc" id="L144">    System.out.println(&quot;Given userName doesn't found in restaurant database&quot;);</span>
+<span class="fc" id="L145">    return null;</span>
   }
 
   @Override
   public Optional&lt;Restaurant&gt; getUserByName(String userName) {
-<span class="nc" id="L150">    return this.getUser(getUserIdByName(userName));</span>
+<span class="fc" id="L150">    return this.getUser(getUserIdByName(userName));</span>
   }
 
   @Override
   public List&lt;Restaurant&gt; getUsers() {
-<span class="nc" id="L155">    return restaurantRepository.findAll();</span>
+<span class="fc" id="L155">    return restaurantRepository.findAll();</span>
   }
 
   @Override
   public boolean passwordMatch(String id, String password) {
-<span class="nc" id="L160">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
-<span class="nc bnc" id="L161" title="All 2 branches missed.">    return restaurant.isPresent() &amp;&amp; passwordService</span>
-<span class="nc bnc" id="L162" title="All 2 branches missed.">        .passwordMatch(password, restaurant.get().getPassword());</span>
+<span class="fc" id="L160">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
+<span class="pc bpc" id="L161" title="1 of 2 branches missed.">    return restaurant.isPresent() &amp;&amp; passwordService</span>
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">        .passwordMatch(password, restaurant.get().getPassword());</span>
   }
 
   @Override
@@ -182,12 +182,12 @@ import org.springframework.stereotype.Service;
 
   @Override
   public int updatePhoneNumber(String id, String newNumber) {
-<span class="nc" id="L185">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
-<span class="nc bnc" id="L186" title="All 2 branches missed.">    if (restaurant.isPresent()) {</span>
-<span class="nc" id="L187">      restaurant.get().setPhoneNumber(newNumber);</span>
-<span class="nc" id="L188">      restaurantRepository.save(restaurant.get());</span>
-<span class="nc" id="L189">      System.out.println(&quot;Update the phone number&quot;);</span>
-<span class="nc" id="L190">      return 1;</span>
+<span class="fc" id="L185">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">    if (restaurant.isPresent()) {</span>
+<span class="fc" id="L187">      restaurant.get().setPhoneNumber(newNumber);</span>
+<span class="fc" id="L188">      restaurantRepository.save(restaurant.get());</span>
+<span class="fc" id="L189">      System.out.println(&quot;Update the phone number&quot;);</span>
+<span class="fc" id="L190">      return 1;</span>
     }
 <span class="nc" id="L192">    System.out.println(&quot;Can't update the phone number&quot;);</span>
 <span class="nc" id="L193">    return -1;</span>
@@ -196,15 +196,15 @@ import org.springframework.stereotype.Service;
   @Override
   public int updateAddress(String id, String address, String city, String state,
       String zip) {
-<span class="nc" id="L199">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
-<span class="nc bnc" id="L200" title="All 2 branches missed.">    if (restaurant.isPresent()) {</span>
-<span class="nc" id="L201">      restaurant.get().setAddress(address);</span>
-<span class="nc" id="L202">      restaurant.get().setCity(city);</span>
-<span class="nc" id="L203">      restaurant.get().setState(state);</span>
-<span class="nc" id="L204">      restaurant.get().setZip(zip);</span>
-<span class="nc" id="L205">      restaurantRepository.save(restaurant.get());</span>
-<span class="nc" id="L206">      System.out.println(&quot;Update the address&quot;);</span>
-<span class="nc" id="L207">      return 1;</span>
+<span class="fc" id="L199">    Optional&lt;Restaurant&gt; restaurant = this.getUser(id);</span>
+<span class="pc bpc" id="L200" title="1 of 2 branches missed.">    if (restaurant.isPresent()) {</span>
+<span class="fc" id="L201">      restaurant.get().setAddress(address);</span>
+<span class="fc" id="L202">      restaurant.get().setCity(city);</span>
+<span class="fc" id="L203">      restaurant.get().setState(state);</span>
+<span class="fc" id="L204">      restaurant.get().setZip(zip);</span>
+<span class="fc" id="L205">      restaurantRepository.save(restaurant.get());</span>
+<span class="fc" id="L206">      System.out.println(&quot;Update the address&quot;);</span>
+<span class="fc" id="L207">      return 1;</span>
     }
 <span class="nc" id="L209">    System.out.println(&quot;Can't update the address&quot;);</span>
 <span class="nc" id="L210">    return -1;</span>

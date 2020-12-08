@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
   @Override
   public int addOrderToCart(String customerId, String restaurantId, List&lt;Dish&gt; content) {
 <span class="fc" id="L23">    List&lt;Order&gt; currentCart = this.customerCart(customerId);</span>
-<span class="pc bpc" id="L24" title="1 of 2 branches missed.">    for (Order o : currentCart) {</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">    for (Order o : currentCart) {</span>
 <span class="nc bnc" id="L25" title="All 2 branches missed.">      if (o.getRestaurantId().equals(restaurantId)) {</span>
 <span class="nc" id="L26">        List&lt;Dish&gt; menu = o.getContent();</span>
 <span class="nc" id="L27">        menu.addAll(content);</span>
@@ -107,18 +107,18 @@ import org.springframework.stereotype.Service;
 
   @Override
   public int acceptOrder(String id, String driverId) {
-<span class="nc" id="L110">    Optional&lt;Order&gt; orderOrNot = getOrder(id);</span>
-<span class="nc bnc" id="L111" title="All 2 branches missed.">    if (orderOrNot.isPresent()) {</span>
-<span class="nc" id="L112">      Order order = orderOrNot.get();</span>
-<span class="nc bnc" id="L113" title="All 4 branches missed.">      if (order.getStartTime() != null &amp;&amp; !order.isDelivery()) {</span>
+<span class="fc" id="L110">    Optional&lt;Order&gt; orderOrNot = getOrder(id);</span>
+<span class="pc bpc" id="L111" title="1 of 2 branches missed.">    if (orderOrNot.isPresent()) {</span>
+<span class="fc" id="L112">      Order order = orderOrNot.get();</span>
+<span class="pc bpc" id="L113" title="3 of 4 branches missed.">      if (order.getStartTime() != null &amp;&amp; !order.isDelivery()) {</span>
 <span class="nc" id="L114">        order.setDelivery(true);</span>
 <span class="nc" id="L115">        order.setDriverId(driverId);</span>
 <span class="nc" id="L116">        orderRepository.save(order);</span>
 <span class="nc" id="L117">        System.out.println(&quot;Driver accepts the order&quot;);</span>
 <span class="nc" id="L118">        return 1;</span>
       } else {
-<span class="nc" id="L120">        System.out.println(&quot;The order can't be accepted&quot;);</span>
-<span class="nc" id="L121">        return 0;</span>
+<span class="fc" id="L120">        System.out.println(&quot;The order can't be accepted&quot;);</span>
+<span class="fc" id="L121">        return 0;</span>
       }
     }
 <span class="nc" id="L124">    System.out.println(&quot;The order doesn't exist&quot;);</span>
@@ -127,17 +127,17 @@ import org.springframework.stereotype.Service;
 
   @Override
   public int finishOrder(String id) {
-<span class="nc" id="L130">    Optional&lt;Order&gt; orderOrNot = getOrder(id);</span>
-<span class="nc bnc" id="L131" title="All 2 branches missed.">    if (orderOrNot.isPresent()) {</span>
-<span class="nc" id="L132">      Order order = orderOrNot.get();</span>
-<span class="nc bnc" id="L133" title="All 4 branches missed.">      if (order.isDelivery() &amp;&amp; order.getEndTime() == null) {</span>
+<span class="fc" id="L130">    Optional&lt;Order&gt; orderOrNot = getOrder(id);</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">    if (orderOrNot.isPresent()) {</span>
+<span class="fc" id="L132">      Order order = orderOrNot.get();</span>
+<span class="pc bpc" id="L133" title="3 of 4 branches missed.">      if (order.isDelivery() &amp;&amp; order.getEndTime() == null) {</span>
 <span class="nc" id="L134">        order.setEndTime(LocalDateTime.now());</span>
 <span class="nc" id="L135">        orderRepository.save(order);</span>
 <span class="nc" id="L136">        System.out.println(&quot;Driver finishes the order&quot;);</span>
 <span class="nc" id="L137">        return 1;</span>
       } else {
-<span class="nc" id="L139">        System.out.println(&quot;The order can't be finished&quot;);</span>
-<span class="nc" id="L140">        return 0;</span>
+<span class="fc" id="L139">        System.out.println(&quot;The order can't be finished&quot;);</span>
+<span class="fc" id="L140">        return 0;</span>
       }
     }
 <span class="nc" id="L143">    System.out.println(&quot;The order can't be finished&quot;);</span>
@@ -147,68 +147,68 @@ import org.springframework.stereotype.Service;
   @Override
   public List&lt;Order&gt; customerCart(String customerId) {
 <span class="fc" id="L149">    return orderRepository.findAll().stream()</span>
-<span class="pc bpc" id="L150" title="3 of 4 branches missed.">        .filter(order -&gt; order.getCustomerId().equals(customerId) &amp;&amp; order.getStartTime() == null)</span>
+<span class="pc bpc" id="L150" title="1 of 4 branches missed.">        .filter(order -&gt; order.getCustomerId().equals(customerId) &amp;&amp; order.getStartTime() == null)</span>
 <span class="fc" id="L151">        .collect(</span>
 <span class="fc" id="L152">            Collectors.toList());</span>
   }
 
   @Override
   public List&lt;Order&gt; customerGetActiveOrders(String customerId) {
-<span class="nc" id="L157">    return orderRepository.findAll().stream().filter(</span>
-<span class="nc bnc" id="L158" title="All 4 branches missed.">        order -&gt; order.getCustomerId().equals(customerId) &amp;&amp; order.getStartTime() != null</span>
-<span class="nc bnc" id="L159" title="All 2 branches missed.">            &amp;&amp; order.getEndTime() == null).collect(</span>
-<span class="nc" id="L160">        Collectors.toList());</span>
+<span class="fc" id="L157">    return orderRepository.findAll().stream().filter(</span>
+<span class="pc bpc" id="L158" title="2 of 4 branches missed.">        order -&gt; order.getCustomerId().equals(customerId) &amp;&amp; order.getStartTime() != null</span>
+<span class="pc bpc" id="L159" title="1 of 2 branches missed.">            &amp;&amp; order.getEndTime() == null).collect(</span>
+<span class="fc" id="L160">        Collectors.toList());</span>
   }
 
   @Override
   public List&lt;Order&gt; customerFindPastOrders(String customerId) {
-<span class="nc" id="L165">    return orderRepository.findAll().stream()</span>
-<span class="nc bnc" id="L166" title="All 4 branches missed.">        .filter(order -&gt; order.getCustomerId().equals(customerId) &amp;&amp; order.getEndTime() != null)</span>
-<span class="nc" id="L167">        .collect(</span>
-<span class="nc" id="L168">            Collectors.toList());</span>
+<span class="fc" id="L165">    return orderRepository.findAll().stream()</span>
+<span class="pc bpc" id="L166" title="2 of 4 branches missed.">        .filter(order -&gt; order.getCustomerId().equals(customerId) &amp;&amp; order.getEndTime() != null)</span>
+<span class="fc" id="L167">        .collect(</span>
+<span class="fc" id="L168">            Collectors.toList());</span>
   }
 
   @Override
   public List&lt;Order&gt; getAllPendingOrders() {
-<span class="nc" id="L173">    return orderRepository.findAll().stream()</span>
-<span class="nc bnc" id="L174" title="All 4 branches missed.">        .filter(order -&gt; order.getStartTime() != null &amp;&amp; !order.isDelivery()).collect(</span>
-<span class="nc" id="L175">            Collectors.toList());</span>
+<span class="fc" id="L173">    return orderRepository.findAll().stream()</span>
+<span class="pc bpc" id="L174" title="1 of 4 branches missed.">        .filter(order -&gt; order.getStartTime() != null &amp;&amp; !order.isDelivery()).collect(</span>
+<span class="fc" id="L175">            Collectors.toList());</span>
   }
 
   @Override
   public Order driverGetActiveOrder(String driverId) {
-<span class="nc bnc" id="L180" title="All 2 branches missed.">    for (Order order : orderRepository.findAll()) {</span>
-<span class="nc bnc" id="L181" title="All 4 branches missed.">      if (order.getDriverId() != null &amp;&amp; order.getDriverId().equals(driverId)</span>
-<span class="nc bnc" id="L182" title="All 2 branches missed.">          &amp;&amp; order.getEndTime() == null) {</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">    for (Order order : orderRepository.findAll()) {</span>
+<span class="fc bfc" id="L181" title="All 4 branches covered.">      if (order.getDriverId() != null &amp;&amp; order.getDriverId().equals(driverId)</span>
+<span class="pc bpc" id="L182" title="1 of 2 branches missed.">          &amp;&amp; order.getEndTime() == null) {</span>
 <span class="nc" id="L183">        return order;</span>
       }
-<span class="nc" id="L185">    }</span>
-<span class="nc" id="L186">    return null;</span>
+<span class="fc" id="L185">    }</span>
+<span class="fc" id="L186">    return null;</span>
   }
 
   @Override
   public List&lt;Order&gt; driverFindPastOrders(String driverId) {
-<span class="nc" id="L191">    return orderRepository.findAll().stream()</span>
-<span class="nc bnc" id="L192" title="All 4 branches missed.">        .filter(order -&gt; order.getDriverId() != null &amp;&amp; order.getDriverId().equals(driverId)</span>
-<span class="nc bnc" id="L193" title="All 2 branches missed.">            &amp;&amp; order.getEndTime() != null)</span>
-<span class="nc" id="L194">        .collect(</span>
-<span class="nc" id="L195">            Collectors.toList());</span>
+<span class="fc" id="L191">    return orderRepository.findAll().stream()</span>
+<span class="pc bpc" id="L192" title="1 of 4 branches missed.">        .filter(order -&gt; order.getDriverId() != null &amp;&amp; order.getDriverId().equals(driverId)</span>
+<span class="pc bnc" id="L193" title="All 2 branches missed.">            &amp;&amp; order.getEndTime() != null)</span>
+<span class="fc" id="L194">        .collect(</span>
+<span class="fc" id="L195">            Collectors.toList());</span>
   }
 
   @Override
   public List&lt;Order&gt; restaurantGetActiveOrders(String restaurantId) {
-<span class="nc" id="L200">    return orderRepository.findAll().stream().filter(</span>
-<span class="nc bnc" id="L201" title="All 4 branches missed.">        order -&gt; order.getRestaurantId().equals(restaurantId) &amp;&amp; order.getStartTime() != null</span>
-<span class="nc bnc" id="L202" title="All 2 branches missed.">            &amp;&amp; order.getEndTime() == null).collect(</span>
-<span class="nc" id="L203">        Collectors.toList());</span>
+<span class="fc" id="L200">    return orderRepository.findAll().stream().filter(</span>
+<span class="pc bpc" id="L201" title="1 of 4 branches missed.">        order -&gt; order.getRestaurantId().equals(restaurantId) &amp;&amp; order.getStartTime() != null</span>
+<span class="pc bpc" id="L202" title="1 of 2 branches missed.">            &amp;&amp; order.getEndTime() == null).collect(</span>
+<span class="fc" id="L203">        Collectors.toList());</span>
   }
 
   @Override
   public List&lt;Order&gt; restaurantFindPastOrders(String restaurantId) {
-<span class="nc" id="L208">    return orderRepository.findAll().stream()</span>
-<span class="nc bnc" id="L209" title="All 4 branches missed.">        .filter(order -&gt; order.getRestaurantId().equals(restaurantId) &amp;&amp; order.getEndTime() != null)</span>
-<span class="nc" id="L210">        .collect(</span>
-<span class="nc" id="L211">            Collectors.toList());</span>
+<span class="fc" id="L208">    return orderRepository.findAll().stream()</span>
+<span class="pc bpc" id="L209" title="1 of 4 branches missed.">        .filter(order -&gt; order.getRestaurantId().equals(restaurantId) &amp;&amp; order.getEndTime() != null)</span>
+<span class="fc" id="L210">        .collect(</span>
+<span class="fc" id="L211">            Collectors.toList());</span>
   }
 
   @Override

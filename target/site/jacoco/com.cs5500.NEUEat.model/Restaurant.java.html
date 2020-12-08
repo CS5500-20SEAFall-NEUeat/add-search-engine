@@ -6,9 +6,9 @@ public class Restaurant extends User {
   private RestaurantInfo information;
   private List&lt;Dish&gt; menu;
 
-<span class="nc" id="L9">  public Restaurant() {</span>
-<span class="nc" id="L10">    this.setType(&quot;restaurant&quot;);</span>
-<span class="nc" id="L11">  }</span>
+<span class="fc" id="L9">  public Restaurant() {</span>
+<span class="fc" id="L10">    this.setType(&quot;restaurant&quot;);</span>
+<span class="fc" id="L11">  }</span>
 
   public Restaurant(String userName, String password, String phoneNumber, String address,
       String city, String state, String zip, RestaurantInfo information,
@@ -21,25 +21,25 @@ public class Restaurant extends User {
 
   public Restaurant(String userName, String password, String phoneNumber, String address,
       String city, String state, String zip) {
-<span class="nc" id="L24">    super(userName, password, phoneNumber, address, city, state, zip);</span>
-<span class="nc" id="L25">    this.setType(&quot;restaurant&quot;);</span>
-<span class="nc" id="L26">  }</span>
+<span class="fc" id="L24">    super(userName, password, phoneNumber, address, city, state, zip);</span>
+<span class="fc" id="L25">    this.setType(&quot;restaurant&quot;);</span>
+<span class="fc" id="L26">  }</span>
 
   public RestaurantInfo getInformation() {
-<span class="nc" id="L29">    return information;</span>
+<span class="fc" id="L29">    return information;</span>
   }
 
   public void setInformation(RestaurantInfo information) {
-<span class="nc" id="L33">    this.information = information;</span>
-<span class="nc" id="L34">  }</span>
+<span class="fc" id="L33">    this.information = information;</span>
+<span class="fc" id="L34">  }</span>
 
   public List&lt;Dish&gt; getMenu() {
-<span class="nc" id="L37">    return menu;</span>
+<span class="fc" id="L37">    return menu;</span>
   }
 
   public void setMenu(List&lt;Dish&gt; menu) {
-<span class="nc" id="L41">    this.menu = menu;</span>
-<span class="nc" id="L42">  }</span>
+<span class="fc" id="L41">    this.menu = menu;</span>
+<span class="fc" id="L42">  }</span>
 
   @Override
   public String toString() {
