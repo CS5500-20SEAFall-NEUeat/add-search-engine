@@ -2,24 +2,20 @@
 <testng-results ignored="0" total="46" passed="42" failed="4" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-12-08T23:17:04Z" name="Surefire suite" finished-at="2020-12-08T23:17:13Z" duration-ms="8358">
+  <suite started-at="2020-12-13T10:19:15Z" name="Surefire suite" finished-at="2020-12-13T10:19:23Z" duration-ms="7823">
     <groups>
     </groups>
-    <test started-at="2020-12-08T23:17:04Z" name="Surefire test" finished-at="2020-12-08T23:17:13Z" duration-ms="8358">
+    <test started-at="2020-12-13T10:19:15Z" name="Surefire test" finished-at="2020-12-13T10:19:23Z" duration-ms="7823">
       <class name="com.cs5500.NEUEat.controller.OrderControllerTest">
-        <test-method signature="checkoutUsers() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="checkoutUsers" finished-at="2020-12-08T23:17:13Z" duration-ms="79" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkoutUsers -->
-        <test-method signature="deleteOrder() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="deleteOrder" finished-at="2020-12-08T23:17:13Z" duration-ms="105" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteOrder -->
-        <test-method signature="addComment() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="addComment" finished-at="2020-12-08T23:17:13Z" duration-ms="89" status="PASS">
+        <test-method signature="addComment() throws java.lang.Exception" started-at="2020-12-13T10:19:23Z" name="addComment" finished-at="2020-12-13T10:19:23Z" duration-ms="66" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addComment -->
-        <test-method signature="addOrderToCart() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="addOrderToCart" finished-at="2020-12-08T23:17:12Z" duration-ms="31" status="FAIL">
+        <test-method signature="checkoutUsers() throws java.lang.Exception" started-at="2020-12-13T10:19:23Z" name="checkoutUsers" finished-at="2020-12-13T10:19:23Z" duration-ms="54" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkoutUsers -->
+        <test-method signature="addOrderToCart() throws java.lang.Exception" started-at="2020-12-13T10:19:23Z" name="addOrderToCart" finished-at="2020-12-13T10:19:23Z" duration-ms="17" status="FAIL">
           <exception class="org.springframework.web.util.NestedServletException">
             <message>
               <![CDATA[Request processing failed; nested exception is java.lang.NullPointerException]]>
@@ -109,63 +105,79 @@ at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServ
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addOrderToCart -->
-        <test-method signature="deleteComment() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="deleteComment" finished-at="2020-12-08T23:17:13Z" duration-ms="117" status="PASS">
+        <test-method signature="deleteComment() throws java.lang.Exception" started-at="2020-12-13T10:19:23Z" name="deleteComment" finished-at="2020-12-13T10:19:23Z" duration-ms="94" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteComment -->
+        <test-method signature="deleteOrder() throws java.lang.Exception" started-at="2020-12-13T10:19:23Z" name="deleteOrder" finished-at="2020-12-13T10:19:23Z" duration-ms="79" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteOrder -->
       </class> <!-- com.cs5500.NEUEat.controller.OrderControllerTest -->
       <class name="com.cs5500.NEUEat.controller.CustomerControllerTest">
-        <test-method signature="getCustomerById() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="getCustomerById" finished-at="2020-12-08T23:17:11Z" duration-ms="5836" status="PASS">
+        <test-method signature="getCustomerById() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="getCustomerById" finished-at="2020-12-13T10:19:21Z" duration-ms="5801" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getCustomerById -->
-        <test-method signature="resetAddress() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="resetAddress" finished-at="2020-12-08T23:17:11Z" duration-ms="5865" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- resetAddress -->
-        <test-method signature="resetPhoneNumber() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="resetPhoneNumber" finished-at="2020-12-08T23:17:11Z" duration-ms="6233" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- resetPhoneNumber -->
-        <test-method signature="resetPassword() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="resetPassword" finished-at="2020-12-08T23:17:11Z" duration-ms="6198" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- resetPassword -->
-        <test-method signature="getShoppingCart() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="getShoppingCart" finished-at="2020-12-08T23:17:11Z" duration-ms="6215" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getShoppingCart -->
-        <test-method signature="loginCustomer() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="loginCustomer" finished-at="2020-12-08T23:17:11Z" duration-ms="6153" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginCustomer -->
-        <test-method signature="getOrderHistory() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="getOrderHistory" finished-at="2020-12-08T23:17:11Z" duration-ms="5945" status="PASS">
+        <test-method signature="getOrderHistory() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="getOrderHistory" finished-at="2020-12-13T10:19:21Z" duration-ms="5884" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getOrderHistory -->
-        <test-method signature="getActiveOrders() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="getActiveOrders" finished-at="2020-12-08T23:17:11Z" duration-ms="5903" status="PASS">
+        <test-method signature="getActiveOrders() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="getActiveOrders" finished-at="2020-12-13T10:19:21Z" duration-ms="5856" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getActiveOrders -->
-        <test-method signature="deleterCustomer() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="deleterCustomer" finished-at="2020-12-08T23:17:11Z" duration-ms="5975" status="PASS">
+        <test-method signature="resetAddress() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="resetAddress" finished-at="2020-12-13T10:19:21Z" duration-ms="5827" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleterCustomer -->
-        <test-method signature="registerCustomer() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="registerCustomer" finished-at="2020-12-08T23:17:11Z" duration-ms="6326" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registerCustomer -->
-        <test-method signature="logoutCustomer() throws java.lang.Exception" started-at="2020-12-08T23:17:05Z" name="logoutCustomer" finished-at="2020-12-08T23:17:11Z" duration-ms="6331" status="PASS">
+        </test-method> <!-- resetAddress -->
+        <test-method signature="logoutCustomer() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="logoutCustomer" finished-at="2020-12-13T10:19:22Z" duration-ms="6198" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutCustomer -->
+        <test-method signature="registerCustomer() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="registerCustomer" finished-at="2020-12-13T10:19:22Z" duration-ms="6192" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerCustomer -->
+        <test-method signature="getShoppingCart() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="getShoppingCart" finished-at="2020-12-13T10:19:22Z" duration-ms="6096" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getShoppingCart -->
+        <test-method signature="deleterCustomer() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="deleterCustomer" finished-at="2020-12-13T10:19:21Z" duration-ms="5905" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleterCustomer -->
+        <test-method signature="resetPhoneNumber() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="resetPhoneNumber" finished-at="2020-12-13T10:19:22Z" duration-ms="6110" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetPhoneNumber -->
+        <test-method signature="loginCustomer() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="loginCustomer" finished-at="2020-12-13T10:19:22Z" duration-ms="6042" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginCustomer -->
+        <test-method signature="resetPassword() throws java.lang.Exception" started-at="2020-12-13T10:19:15Z" name="resetPassword" finished-at="2020-12-13T10:19:22Z" duration-ms="6075" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetPassword -->
       </class> <!-- com.cs5500.NEUEat.controller.CustomerControllerTest -->
       <class name="com.cs5500.NEUEat.controller.RestaurantControllerTest">
-        <test-method signature="getRestaurantById() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="getRestaurantById" finished-at="2020-12-08T23:17:12Z" duration-ms="439" status="PASS">
+        <test-method signature="getRestaurantById() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getRestaurantById" finished-at="2020-12-13T10:19:22Z" duration-ms="339" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getRestaurantById -->
-        <test-method signature="getActiveOrders() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="getActiveOrders" finished-at="2020-12-08T23:17:11Z" duration-ms="103" status="FAIL">
+        <test-method signature="searchRestaurants() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="searchRestaurants" finished-at="2020-12-13T10:19:22Z" duration-ms="230" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchRestaurants -->
+        <test-method signature="getRestaurantInformation() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getRestaurantInformation" finished-at="2020-12-13T10:19:22Z" duration-ms="27" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getRestaurantInformation -->
+        <test-method signature="registerRestaurant() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="registerRestaurant" finished-at="2020-12-13T10:19:22Z" duration-ms="325" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerRestaurant -->
+        <test-method signature="getActiveOrders() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getActiveOrders" finished-at="2020-12-13T10:19:22Z" duration-ms="70" status="FAIL">
           <exception class="org.springframework.web.util.NestedServletException">
             <message>
               <![CDATA[Request processing failed; nested exception is java.lang.NullPointerException]]>
@@ -262,31 +274,23 @@ at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServ
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getActiveOrders -->
-        <test-method signature="getAllRestaurants() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="getAllRestaurants" finished-at="2020-12-08T23:17:12Z" duration-ms="451" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getAllRestaurants -->
-        <test-method signature="updateRestaurantInformation() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="updateRestaurantInformation" finished-at="2020-12-08T23:17:12Z" duration-ms="251" status="PASS">
+        <test-method signature="updateRestaurantInformation() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="updateRestaurantInformation" finished-at="2020-12-13T10:19:22Z" duration-ms="196" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateRestaurantInformation -->
-        <test-method signature="resetAddress() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="resetAddress" finished-at="2020-12-08T23:17:11Z" duration-ms="68" status="PASS">
+        <test-method signature="getAllRestaurants() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getAllRestaurants" finished-at="2020-12-13T10:19:22Z" duration-ms="353" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllRestaurants -->
+        <test-method signature="resetAddress() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="resetAddress" finished-at="2020-12-13T10:19:22Z" duration-ms="48" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- resetAddress -->
-        <test-method signature="registerRestaurant() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="registerRestaurant" finished-at="2020-12-08T23:17:12Z" duration-ms="421" status="PASS">
+        <test-method signature="addDishToMenu() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="addDishToMenu" finished-at="2020-12-13T10:19:22Z" duration-ms="374" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- registerRestaurant -->
-        <test-method signature="searchRestaurants() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="searchRestaurants" finished-at="2020-12-08T23:17:12Z" duration-ms="316" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchRestaurants -->
-        <test-method signature="getRestaurantInformation() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="getRestaurantInformation" finished-at="2020-12-08T23:17:11Z" duration-ms="40" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getRestaurantInformation -->
-        <test-method signature="getOrderHistory() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="getOrderHistory" finished-at="2020-12-08T23:17:12Z" duration-ms="279" status="FAIL">
+        </test-method> <!-- addDishToMenu -->
+        <test-method signature="getOrderHistory() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getOrderHistory" finished-at="2020-12-13T10:19:22Z" duration-ms="210" status="FAIL">
           <exception class="org.springframework.web.util.NestedServletException">
             <message>
               <![CDATA[Request processing failed; nested exception is java.lang.NullPointerException]]>
@@ -383,23 +387,27 @@ at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServ
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getOrderHistory -->
-        <test-method signature="addDishToMenu() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="addDishToMenu" finished-at="2020-12-08T23:17:12Z" duration-ms="472" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addDishToMenu -->
-        <test-method signature="loginRestaurant() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="loginRestaurant" finished-at="2020-12-08T23:17:12Z" duration-ms="635" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginRestaurant -->
-        <test-method signature="removeDishToMenu() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="removeDishToMenu" finished-at="2020-12-08T23:17:12Z" duration-ms="685" status="PASS">
+        <test-method signature="removeDishToMenu() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="removeDishToMenu" finished-at="2020-12-13T10:19:22Z" duration-ms="537" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- removeDishToMenu -->
-        <test-method signature="resetPhoneNumber() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="resetPhoneNumber" finished-at="2020-12-08T23:17:12Z" duration-ms="664" status="PASS">
+        <test-method signature="loginRestaurant() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="loginRestaurant" finished-at="2020-12-13T10:19:22Z" duration-ms="487" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginRestaurant -->
+        <test-method signature="logoutRestaurant() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="logoutRestaurant" finished-at="2020-12-13T10:19:22Z" duration-ms="545" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutRestaurant -->
+        <test-method signature="resetPassword() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="resetPassword" finished-at="2020-12-13T10:19:22Z" duration-ms="504" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetPassword -->
+        <test-method signature="resetPhoneNumber() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="resetPhoneNumber" finished-at="2020-12-13T10:19:22Z" duration-ms="522" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- resetPhoneNumber -->
-        <test-method signature="deleterRestaurant() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="deleterRestaurant" finished-at="2020-12-08T23:17:12Z" duration-ms="523" status="FAIL">
+        <test-method signature="deleterRestaurant() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="deleterRestaurant" finished-at="2020-12-13T10:19:22Z" duration-ms="398" status="FAIL">
           <exception class="org.springframework.web.util.NestedServletException">
             <message>
               <![CDATA[Request processing failed; nested exception is java.lang.NullPointerException]]>
@@ -496,69 +504,61 @@ at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServ
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleterRestaurant -->
-        <test-method signature="resetPassword() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="resetPassword" finished-at="2020-12-08T23:17:12Z" duration-ms="650" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- resetPassword -->
-        <test-method signature="logoutRestaurant() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="logoutRestaurant" finished-at="2020-12-08T23:17:12Z" duration-ms="700" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logoutRestaurant -->
-        <test-method signature="getMenu() throws java.lang.Exception" started-at="2020-12-08T23:17:11Z" name="getMenu" finished-at="2020-12-08T23:17:12Z" duration-ms="495" status="PASS">
+        <test-method signature="getMenu() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getMenu" finished-at="2020-12-13T10:19:22Z" duration-ms="386" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getMenu -->
       </class> <!-- com.cs5500.NEUEat.controller.RestaurantControllerTest -->
       <class name="com.cs5500.NEUEat.controller.DriverControllerTest">
-        <test-method signature="getOrderHistory() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="getOrderHistory" finished-at="2020-12-08T23:17:12Z" duration-ms="209" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getOrderHistory -->
-        <test-method signature="resetAddress() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="resetAddress" finished-at="2020-12-08T23:17:12Z" duration-ms="37" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- resetAddress -->
-        <test-method signature="deleterDriver() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="deleterDriver" finished-at="2020-12-08T23:17:12Z" duration-ms="63" status="PASS">
+        <test-method signature="deleterDriver() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="deleterDriver" finished-at="2020-12-13T10:19:22Z" duration-ms="33" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleterDriver -->
-        <test-method signature="getActiveOrder() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="getActiveOrder" finished-at="2020-12-08T23:17:12Z" duration-ms="70" status="PASS">
+        <test-method signature="resetAddress() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="resetAddress" finished-at="2020-12-13T10:19:22Z" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getActiveOrder -->
-        <test-method signature="registerDriver() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="registerDriver" finished-at="2020-12-08T23:17:12Z" duration-ms="183" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registerDriver -->
-        <test-method signature="logoutDriver() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="logoutDriver" finished-at="2020-12-08T23:17:12Z" duration-ms="430" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logoutDriver -->
-        <test-method signature="acceptOrder() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="acceptOrder" finished-at="2020-12-08T23:17:12Z" duration-ms="313" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- acceptOrder -->
-        <test-method signature="resetPassword() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="resetPassword" finished-at="2020-12-08T23:17:12Z" duration-ms="268" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- resetPassword -->
-        <test-method signature="getPendingOrders() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="getPendingOrders" finished-at="2020-12-08T23:17:12Z" duration-ms="250" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getPendingOrders -->
-        <test-method signature="resetPhoneNumber() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="resetPhoneNumber" finished-at="2020-12-08T23:17:12Z" duration-ms="284" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- resetPhoneNumber -->
-        <test-method signature="getDriverById() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="getDriverById" finished-at="2020-12-08T23:17:12Z" duration-ms="295" status="PASS">
+        </test-method> <!-- resetAddress -->
+        <test-method signature="getDriverById() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getDriverById" finished-at="2020-12-13T10:19:22Z" duration-ms="198" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getDriverById -->
-        <test-method signature="loginDriver() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="loginDriver" finished-at="2020-12-08T23:17:12Z" duration-ms="416" status="PASS">
+        <test-method signature="getActiveOrder() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getActiveOrder" finished-at="2020-12-13T10:19:22Z" duration-ms="35" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getActiveOrder -->
+        <test-method signature="logoutDriver() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="logoutDriver" finished-at="2020-12-13T10:19:23Z" duration-ms="317" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutDriver -->
+        <test-method signature="getPendingOrders() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getPendingOrders" finished-at="2020-12-13T10:19:22Z" duration-ms="163" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getPendingOrders -->
+        <test-method signature="loginDriver() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="loginDriver" finished-at="2020-12-13T10:19:23Z" duration-ms="309" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginDriver -->
-        <test-method signature="finishOrder() throws java.lang.Exception" started-at="2020-12-08T23:17:12Z" name="finishOrder" finished-at="2020-12-08T23:17:12Z" duration-ms="447" status="PASS">
+        <test-method signature="getOrderHistory() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="getOrderHistory" finished-at="2020-12-13T10:19:22Z" duration-ms="137" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getOrderHistory -->
+        <test-method signature="resetPhoneNumber() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="resetPhoneNumber" finished-at="2020-12-13T10:19:22Z" duration-ms="186" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetPhoneNumber -->
+        <test-method signature="resetPassword() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="resetPassword" finished-at="2020-12-13T10:19:22Z" duration-ms="174" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetPassword -->
+        <test-method signature="registerDriver() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="registerDriver" finished-at="2020-12-13T10:19:22Z" duration-ms="124" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerDriver -->
+        <test-method signature="acceptOrder() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="acceptOrder" finished-at="2020-12-13T10:19:22Z" duration-ms="218" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- acceptOrder -->
+        <test-method signature="finishOrder() throws java.lang.Exception" started-at="2020-12-13T10:19:22Z" name="finishOrder" finished-at="2020-12-13T10:19:23Z" duration-ms="326" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finishOrder -->
