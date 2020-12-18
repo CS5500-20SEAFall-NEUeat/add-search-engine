@@ -8,5 +8,7 @@ The project follows MVC design pattern. We used Spring Boot + MongoDB to support
 In order to deploy the app to Heroku, first we added maven-frontend-plugin to package our frontend and backend together. Then, we created a new cluster in MongoDB Altas to store our database. After that, we edited our "app-running" command in Procfile (for being recognized by Heroku). At last, we generated a new "jar" file,  created a new app in Heroku and linkd our Git repository to the app.
 
 
-If you want to deploy the app in your computer. You should follow the steps: \n
-1. scds
+If you want to deploy the app in your computer. You should follow the steps:
+1. Clone the resposiyory
+2. Start the MongoDB
+3. Run the "NEUApplication", then you app will starts running in http://localhost:8080/
