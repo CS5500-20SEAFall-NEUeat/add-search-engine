@@ -9,6 +9,6 @@ In order to deploy the app to Heroku, first we added maven-frontend-plugin to pa
 
 
 If you want to deploy the app in your computer. You should follow the steps:
-1. Clone the resposiyory
+1. Clone the repository
 2. Start the MongoDB
 3. Run the "NEUApplication", then you app will starts running in http://localhost:8080/
